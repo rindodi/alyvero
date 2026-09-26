@@ -15,7 +15,7 @@ export default function Tool() {
     try {
       const pdfjs = await import("pdfjs-dist/legacy/build/pdf.mjs");
       const buffer = await files[0].arrayBuffer();
-      const pdf = await pdfjs.getDocument({ data: buffer, disableWorker: true }).promise;
+      const pdf = await pdfjs.getDocument({ data: buffer }).promise;
       const paragraphs: Paragraph[] = [];
       for (let i = 1; i <= pdf.numPages; i++) {
         const page = await pdf.getPage(i);

@@ -15,7 +15,7 @@ export default function Tool() {
     try {
       const doc = await PDFDocument.load(await file.arrayBuffer());
       const bytes = await doc.save({ useObjectStreams: true, addDefaultPage: false });
-      const blob = new Blob([bytes], { type: "application/pdf" });
+      const blob = new Blob([new Uint8Array(bytes)], { type: "application/pdf" });
       const url = URL.createObjectURL(blob);
       setResult({ url, size: blob.size, original: file.size });
       setMessage(blob.size < file.size ? "Your PDF is ready." : "This PDF could not be reduced further by this browser-only optimizer.");

@@ -24,7 +24,7 @@ export default function Tool() {
         page.drawImage(image,{x:0,y:0,width:w,height:h});
       }
       const bytes = await pdf.save();
-      const blob = new Blob([bytes],{type:"application/pdf"});
+      const blob = new Blob([new Uint8Array(bytes)],{type:"application/pdf"});
       setResult({url:URL.createObjectURL(blob),size:blob.size});
       setMessage("Your PDF is ready.");
     } catch {
