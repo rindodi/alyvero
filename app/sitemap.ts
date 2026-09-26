@@ -1,17 +1,19 @@
 import type { MetadataRoute } from "next";
+import { pdfGuides } from "@/lib/compressPdfGuides";
 
 const base = "https://alyvero.vercel.app";
 const lastModified = new Date("2026-09-26T00:00:00.000Z");
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const paths = [
-    "", "/pdf-to-word", "/compress-pdf", "/compress-image", "/heic-to-jpg",
-    "/image-to-pdf", "/about", "/privacy", "/terms", "/contact",
+  const core = [
+    "", "/pdf-to-word", "/compress-pdf", "/compress-image", "/heic-to-jpg", "/image-to-pdf",
+    "/about", "/privacy", "/terms", "/contact",
   ];
-  return paths.map((path) => ({
+  const guidePaths = pdfGuides.map((guide) => `/${guide.slug}`);
+  return [...core, ...guidePaths].map((path) => ({
     url: base + path,
     lastModified,
     changeFrequency: path === "" ? "weekly" : "monthly",
-    priority: path === "" ? 1 : 0.8,
+    priority: path === "" ? 1 : path === "/compress-pdf" ? 0.9 : guidePaths.includes(path) ? 0.7 : 0.8,
   }));
 }
