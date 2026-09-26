@@ -1,0 +1,1 @@
+import type { MetadataRoute } from "next"; export default function sitemap(): MetadataRoute.Sitemap { const base="https://alyvero.vercel.app"; const paths=["","/pdf-to-word","/compress-pdf","/compress-image","/heic-to-jpg","/image-to-pdf","/about","/privacy","/terms","/contact"]; return paths.map(path=>({url:base+path,lastModified:new Date()})); }
