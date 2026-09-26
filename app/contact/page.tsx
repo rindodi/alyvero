@@ -1,6 +1,7 @@
 export const metadata = {
   title: "Contact",
-  description: "Contact Alyvero with product feedback, bug reports, questions and partnership enquiries."
+  description:
+    "Contact Alyvero with product feedback, bug reports, questions and partnership enquiries.",
 };
 
 export default function Contact() {
@@ -14,7 +15,7 @@ export default function Contact() {
           <input type="hidden" name="_subject" value="Alyvero contact form" />
           <input type="hidden" name="_captcha" value="true" />
           <input type="hidden" name="_template" value="table" />
-          <input type="hidden" name="_next" value="https://alyvero.vercel.app/contact?sent=1" />
+          <input type="hidden" name="_next" value="https://www.alyvero.co.ke/contact?sent=1" />
 
           <label htmlFor="name">Name</label>
           <input id="name" name="name" type="text" required autoComplete="name" />

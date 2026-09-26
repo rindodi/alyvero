@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
 import "./globals.css";
 
-const siteUrl = "https://alyvero.vercel.app";
+const siteUrl = "https://www.alyvero.co.ke";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -97,7 +97,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           </div>
           <div className="powered-by">
             Powered by{" "}
-            <a href="https://www.fixtech.co.ke" target="_blank" rel="noopener noreferrer">FixTech</a>
+            <a href="https://www.fixtech.co.ke" target="_blank" rel="noopener noreferrer">
+              FixTech
+            </a>
           </div>
         </footer>
       </body>
