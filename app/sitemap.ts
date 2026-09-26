@@ -7,6 +7,7 @@ const lastModified = new Date("2026-09-26T00:00:00.000Z");
 export default function sitemap(): MetadataRoute.Sitemap {
   const core = [
     "",
+    "/tools",
     "/pdf-to-word",
     "/compress-pdf",
     "/compress-image",
@@ -21,14 +22,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [...core, ...guidePaths].map((path) => ({
     url: base + path,
     lastModified,
-    changeFrequency: path === "" ? "weekly" : path === "/compress-pdf" ? "monthly" : "monthly",
+    changeFrequency: path === "" ? "weekly" : "monthly",
     priority:
-      path === ""
-        ? 1
-        : path === "/compress-pdf"
-          ? 0.9
-          : guidePaths.includes(path)
-            ? 0.7
-            : 0.8,
+      path === "" ? 1 :
+      path === "/tools" ? 0.9 :
+      path === "/compress-pdf" ? 0.9 :
+      guidePaths.includes(path) ? 0.7 : 0.8,
   }));
 }
