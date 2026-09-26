@@ -27,8 +27,6 @@ export default function Contact() {
 
           <button className="primary" type="submit">Send message</button>
         </form>
-
-        <p className="contact-note">You can also email <a href="mailto:rindodi@gmail.com">rindodi@gmail.com</a> directly.</p>
       </div>
     </div>
   );

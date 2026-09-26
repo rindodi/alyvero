@@ -69,9 +69,8 @@ main { min-height:calc(100vh - 120px); }
 .contact-form label { font-weight:700; margin-top:8px; }
 .contact-form input, .contact-form textarea { width:100%; border:1px solid var(--line); border-radius:11px; padding:12px 14px; outline:none; background:#fff; }
 .contact-form input:focus, .contact-form textarea:focus { border-color:#98a2b3; box-shadow:0 0 0 3px #eef2f6; }
-.contact-note { margin-top:18px; }
-.contact-note a { text-decoration:underline; }
-.site-footer { min-height:76px; border-top:1px solid var(--line); display:flex; align-items:center; justify-content:space-between; gap:18px; padding:18px 24px; color:var(--muted); font-size:13px; background:#fff; }
+.site-footer { min-height:76px; border-top:1px solid var(--line); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px; padding:18px 24px; color:var(--muted); font-size:13px; text-align:center; background:#fff; }
+.site-footer div { justify-content:center; align-items:center; flex-wrap:wrap; text-align:center; }
 .powered-by a { color:var(--text); font-weight:700; }
 @media (max-width:900px) { .tool-grid { grid-template-columns:repeat(2,1fr); } }
 @media (max-width:640px) {
@@ -85,5 +84,5 @@ main { min-height:calc(100vh - 120px); }
   .tool-grid, .steps, .result-grid { grid-template-columns:1fr; }
   .tool-panel { padding:16px; }
   .content-page h1 { font-size:40px; }
-  .site-footer { flex-direction:column; align-items:flex-start; }
+  .site-footer { flex-direction:column; align-items:center; text-align:center; }
 }
