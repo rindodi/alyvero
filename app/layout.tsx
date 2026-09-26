@@ -1,27 +1,84 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
+import type { ReactNode } from "react";
 import "./globals.css";
 
+const siteUrl = "https://alyvero.vercel.app";
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://alyvero.vercel.app"),
+  metadataBase: new URL(siteUrl),
   title: {
-    default: "Alyvero — Solve it. Get it done.",
-    template: "%s | Alyvero"
+    default: "Alyvero — Online File Tools | PDF & Image Tools",
+    template: "%s | Alyvero",
   },
-  description: "Simple browser-first tools for converting, compressing and creating files.",
+  description:
+    "Free browser-based tools for converting, compressing and creating PDF and image files. PDF to Word, PDF compression, image compression, HEIC to JPG and image to PDF.",
   applicationName: "Alyvero",
-  robots: { index: true, follow: true },
+  category: "utilities",
+  referrer: "origin-when-cross-origin",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+  alternates: { canonical: "/" },
   openGraph: {
-    title: "Alyvero — Solve it. Get it done.",
-    description: "Simple browser-first tools for everyday digital file problems.",
+    title: "Alyvero — Online File Tools",
+    description:
+      "Simple browser-based tools for converting, compressing and creating PDF and image files.",
+    url: siteUrl,
+    siteName: "Alyvero",
     type: "website",
-    siteName: "Alyvero"
-  }
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary",
+    title: "Alyvero — Online File Tools",
+    description:
+      "Simple browser-based tools for everyday PDF and image file problems.",
+  },
+  icons: { icon: "/icon.svg", shortcut: "/icon.svg" },
 };
 
-export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: "#111827",
+};
+
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": `${siteUrl}/#organization`,
+  name: "Alyvero",
+  url: siteUrl,
+  description:
+    "Browser-based utility platform for common digital file conversion, compression and creation tasks.",
+};
+
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": `${siteUrl}/#website`,
+  name: "Alyvero",
+  url: siteUrl,
+  publisher: { "@id": `${siteUrl}/#organization` },
+  inLanguage: "en",
+};
+
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <body>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify([organizationSchema, websiteSchema]) }}
+        />
         <header className="site-header">
           <a className="brand" href="/" aria-label="Alyvero home">ALYVERO</a>
           <nav aria-label="Main navigation">
@@ -39,7 +96,8 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
             <a href="/contact">Contact</a>
           </div>
           <div className="powered-by">
-            Powered by <a href="https://www.fixtech.co.ke" target="_blank" rel="noopener noreferrer">FixTech</a>
+            Powered by{" "}
+            <a href="https://www.fixtech.co.ke" target="_blank" rel="noopener noreferrer">FixTech</a>
           </div>
         </footer>
       </body>
