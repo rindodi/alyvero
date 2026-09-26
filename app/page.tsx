@@ -5,7 +5,10 @@ export default function Home() {
     <div className="container">
       <section className="hero">
         <h1>Solve it.<br />Get it done.</h1>
-        <p>Simple online tools for converting, compressing and creating files directly from your browser.</p>
+        <p>
+          Simple online tools for converting, compressing and creating files directly from your browser.
+          Choose a specific tool, process your file and download the result.
+        </p>
         <form className="search-box" action="/#tools">
           <input name="q" placeholder="What do you need to do?" aria-label="Search Alyvero tools" />
           <button type="submit">Find a tool</button>
@@ -26,12 +29,25 @@ export default function Home() {
       </section>
 
       <section className="section info-section">
-        <h2>How Alyvero works</h2>
+        <h2>Simple tools for common file problems</h2>
+        <p>
+          Alyvero focuses on useful file tasks rather than a large directory of unrelated utilities.
+          The first tools cover common PDF and image problems and are designed to work without an Alyvero account.
+        </p>
         <div className="steps">
-          <div><strong>1. Choose a tool</strong><p>Pick the conversion or compression tool you need.</p></div>
-          <div><strong>2. Upload your file</strong><p>Select a file directly from your phone or computer.</p></div>
+          <div><strong>1. Choose a tool</strong><p>Pick the conversion, compression or file-creation task you need.</p></div>
+          <div><strong>2. Select your file</strong><p>Choose a supported file from your phone or computer.</p></div>
           <div><strong>3. Get your result</strong><p>Process the file and download the finished result.</p></div>
         </div>
+      </section>
+
+      <section className="section">
+        <h2>Privacy-conscious file processing</h2>
+        <p>
+          Alyvero uses browser-first processing where practical. Tool pages explain supported formats,
+          limitations and processing expectations before you use them. See the <a href="/privacy">Privacy Policy</a>
+          for information about cookies, analytics, advertising and contact-form data.
+        </p>
       </section>
     </div>
   );
