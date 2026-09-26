@@ -1,15 +1,15 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { tools } from "@/lib/tools";
 
 export const metadata: Metadata = {
-  title: "Online File Tools | PDF & Image Utilities",
-  description:
-    "Use Alyvero's free online file tools to convert PDF to Word, compress PDFs and images, convert HEIC to JPG, and create PDFs from images.",
+  title: "Free Online File Tools for PDF & Images",
+  description: "Alyvero provides free browser-based tools for PDF and image problems: PDF to Word, PDF compression, image compression, HEIC to JPG and image to PDF.",
   alternates: { canonical: "/" },
   openGraph: {
-    title: "Online File Tools | Alyvero",
-    description: "Free browser-based PDF and image tools for everyday file problems.",
-    url: "https://alyvero.vercel.app/",
+    title: "Free Online File Tools for PDF & Images | Alyvero",
+    description: "Simple browser-based tools for converting, compressing and creating PDF and image files.",
+    url: "https://www.alyvero.co.ke/",
     type: "website",
   },
 };
@@ -18,12 +18,13 @@ export default function Home() {
   return (
     <div className="container">
       <section className="hero">
+        <p className="eyebrow">Alyvero online file tools</p>
         <h1>Solve it.<br />Get it done.</h1>
         <p>
-          Simple online tools for converting, compressing and creating files directly from
-          your browser. Choose a specific tool, process your file and download the result.
+          Simple online tools for converting, compressing and creating files directly from your browser.
+          Choose a specific tool, process your file and download the result.
         </p>
-        <form className="search-box" action="/#tools">
+        <form className="search-box" action="/tools">
           <input name="q" placeholder="What do you need to do?" aria-label="Search Alyvero tools" />
           <button type="submit">Find a tool</button>
         </form>
@@ -37,12 +38,14 @@ export default function Home() {
             </a>
           ))}
         </div>
+        <p className="section-link"><Link href="/tools">Browse all Alyvero tools →</Link></p>
       </section>
       <section className="section info-section">
-        <h2>Simple tools for common file problems</h2>
+        <h2>Tools for common PDF and image problems</h2>
         <p>
-          Alyvero focuses on useful file tasks rather than a large directory of unrelated utilities.
-          The first tools cover common PDF and image problems and are designed to work without an Alyvero account.
+          Alyvero focuses on practical file tasks rather than a large directory of unrelated utilities.
+          The current toolkit covers document conversion, PDF and image compression, photo compatibility
+          and creating PDFs from images. Each tool page explains supported formats and important limitations.
         </p>
         <div className="steps">
           <div><strong>1. Choose a tool</strong><p>Pick the conversion, compression or file-creation task you need.</p></div>
@@ -51,11 +54,22 @@ export default function Home() {
         </div>
       </section>
       <section className="section">
+        <h2>What Alyvero can help with</h2>
+        <p>
+          Need an editable document from a PDF? Start with <Link href="/pdf-to-word">PDF to Word</Link>.
+          Trying to meet an upload or email size limit? Use <Link href="/compress-pdf">Compress PDF</Link> or
+          <Link href="/compress-image"> Compress Image</Link>. If a phone photo is saved as HEIC, use
+          <Link href="/heic-to-jpg"> HEIC to JPG</Link>. To combine photos into one document, use
+          <Link href="/image-to-pdf"> Image to PDF</Link>.
+        </p>
+      </section>
+      <section className="section">
         <h2>Privacy-conscious file processing</h2>
         <p>
           Alyvero uses browser-first processing where practical. Tool pages explain supported formats,
           limitations and processing expectations before you use them. See the{" "}
-          <a href="/privacy">Privacy Policy</a> for information about cookies, analytics, advertising and contact-form data.
+          <Link href="/privacy">Privacy Policy</Link> for information about cookies, analytics,
+          advertising and contact-form data.
         </p>
       </section>
     </div>
