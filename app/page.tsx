@@ -11,6 +11,7 @@ export default function Home() {
           <button type="submit">Find a tool</button>
         </form>
       </section>
+
       <section className="section" id="tools">
         <h2>Popular tools</h2>
         <div className="tool-grid">
@@ -18,8 +19,18 @@ export default function Home() {
             <a className="tool-card" href={`/${tool.slug}`} key={tool.slug}>
               <h3>{tool.name}</h3>
               <p>{tool.description}</p>
+              <span className="tool-link">Open tool →</span>
             </a>
           ))}
+        </div>
+      </section>
+
+      <section className="section info-section">
+        <h2>How Alyvero works</h2>
+        <div className="steps">
+          <div><strong>1. Choose a tool</strong><p>Pick the conversion or compression tool you need.</p></div>
+          <div><strong>2. Upload your file</strong><p>Select a file directly from your phone or computer.</p></div>
+          <div><strong>3. Get your result</strong><p>Process the file and download the finished result.</p></div>
         </div>
       </section>
     </div>

@@ -25,6 +25,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <header className="site-header">
           <a className="brand" href="/" aria-label="Alyvero home">ALYVERO</a>
           <nav aria-label="Main navigation">
+            <a href="/#tools">Tools</a>
             <a href="/about">About</a>
             <a href="/contact">Contact</a>
           </nav>
@@ -35,6 +36,10 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           <div>
             <a href="/privacy">Privacy</a>
             <a href="/terms">Terms</a>
+            <a href="/contact">Contact</a>
+          </div>
+          <div className="powered-by">
+            Powered by <a href="https://www.fixtech.co.ke" target="_blank" rel="noopener noreferrer">FixTech</a>
           </div>
         </footer>
       </body>
