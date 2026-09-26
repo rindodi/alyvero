@@ -17,3 +17,7 @@ Alyvero contact form delivers messages to rindodi@gmail.com via FormSubmit.
 ## Powered by
 
 Alyvero is powered by FixTech: https://www.fixtech.co.ke
+
+## Deployment
+
+Production deployment refresh: 2026-09-26
