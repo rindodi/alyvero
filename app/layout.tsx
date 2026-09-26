@@ -10,27 +10,22 @@ export const metadata: Metadata = {
     default: "Alyvero — Online File Tools | PDF & Image Tools",
     template: "%s | Alyvero",
   },
-  description:
-    "Free browser-based tools for converting, compressing and creating PDF and image files. PDF to Word, PDF compression, image compression, HEIC to JPG and image to PDF.",
+  description: "Free browser-based tools for converting, compressing and creating PDF and image files. PDF to Word, PDF compression, image compression, HEIC to JPG and image to PDF.",
   applicationName: "Alyvero",
   category: "utilities",
   referrer: "origin-when-cross-origin",
   robots: {
     index: true,
     follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-      "max-video-preview": -1,
-    },
+    googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1, "max-video-preview": -1 },
   },
   alternates: { canonical: "/" },
+  verification: {
+    google: "n7LZAPVyGYehdp6QFwkEvMg_pfVsRKk86gB9gurNTL4",
+  },
   openGraph: {
     title: "Alyvero — Online File Tools",
-    description:
-      "Simple browser-based tools for converting, compressing and creating PDF and image files.",
+    description: "Simple browser-based tools for converting, compressing and creating PDF and image files.",
     url: siteUrl,
     siteName: "Alyvero",
     type: "website",
@@ -39,17 +34,12 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary",
     title: "Alyvero — Online File Tools",
-    description:
-      "Simple browser-based tools for everyday PDF and image file problems.",
+    description: "Simple browser-based tools for everyday PDF and image file problems.",
   },
   icons: { icon: "/icon.svg", shortcut: "/icon.svg" },
 };
 
-export const viewport: Viewport = {
-  width: "device-width",
-  initialScale: 1,
-  themeColor: "#111827",
-};
+export const viewport: Viewport = { width: "device-width", initialScale: 1, themeColor: "#111827" };
 
 const organizationSchema = {
   "@context": "https://schema.org",
@@ -57,10 +47,8 @@ const organizationSchema = {
   "@id": `${siteUrl}/#organization`,
   name: "Alyvero",
   url: siteUrl,
-  description:
-    "Browser-based utility platform for common digital file conversion, compression and creation tasks.",
+  description: "Browser-based utility platform for common digital file conversion, compression and creation tasks.",
 };
-
 const websiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
@@ -75,14 +63,11 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <body>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify([organizationSchema, websiteSchema]) }}
-        />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify([organizationSchema, websiteSchema]) }} />
         <header className="site-header">
           <a className="brand" href="/" aria-label="Alyvero home">ALYVERO</a>
           <nav aria-label="Main navigation">
-            <a href="/#tools">Tools</a>
+            <a href="/tools">Tools</a>
             <a href="/about">About</a>
             <a href="/contact">Contact</a>
           </nav>
@@ -90,17 +75,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <main>{children}</main>
         <footer className="site-footer">
           <span>© {new Date().getFullYear()} Alyvero</span>
-          <div>
-            <a href="/privacy">Privacy</a>
-            <a href="/terms">Terms</a>
-            <a href="/contact">Contact</a>
-          </div>
-          <div className="powered-by">
-            Powered by{" "}
-            <a href="https://www.fixtech.co.ke" target="_blank" rel="noopener noreferrer">
-              FixTech
-            </a>
-          </div>
+          <div><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/contact">Contact</a></div>
+          <div className="powered-by">Powered by{" "}<a href="https://www.fixtech.co.ke" target="_blank" rel="noopener noreferrer">FixTech</a></div>
         </footer>
       </body>
     </html>
