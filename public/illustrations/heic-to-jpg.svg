@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 320">
+<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#FF4F81"/><stop offset="1" stop-color="#8B5CF6"/></linearGradient></defs>
+<rect width="520" height="320" rx="32" fill="#FFF1F6"/><circle cx="74" cy="250" r="48" fill="#FFE0EB"/><circle cx="448" cy="72" r="52" fill="#EAE1FF"/>
+<rect x="84" y="50" width="184" height="220" rx="22" fill="#1F2937"/><rect x="96" y="62" width="160" height="196" rx="16" fill="#111827"/>
+<rect x="110" y="82" width="132" height="122" rx="12" fill="url(#g)"/><circle cx="145" cy="116" r="15" fill="#FFE7A8"/><path d="M116 187l38-42 25 27 20-31 43 46z" fill="#fff" opacity=".9"/>
+<text x="176" y="235" text-anchor="middle" font-family="Arial" font-size="17" font-weight="900" fill="#fff">HEIC</text>
+<path d="M300 156h78m-25-27 27 27-27 27" fill="none" stroke="url(#g)" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="390" y="94" width="78" height="116" rx="13" fill="#fff" stroke="#E5D2E7" stroke-width="4"/>
+<text x="429" y="145" text-anchor="middle" font-family="Arial" font-size="20" font-weight="900" fill="#E83E7D">JPG</text>
+<rect x="407" y="158" width="44" height="30" rx="6" fill="#FCE7F3"/></svg>
