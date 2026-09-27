@@ -71,6 +71,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           <nav aria-label="Main navigation">
             <a href="/" aria-current="page">Home</a>
             <a href="/tools">Tools</a>
+            <a href="/guides">Guides</a>
             <a href="/about">About</a>
             <a href="/contact">Contact</a>
           </nav>
