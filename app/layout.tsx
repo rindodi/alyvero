@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
 import "./globals.css";
 import MobileNav from "@/components/MobileNav";
+import BackToTop from "@/components/BackToTop";
 
 const siteUrl = "https://www.alyvero.co.ke";
 
@@ -79,6 +80,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           <MobileNav />
         </header>
         <main>{children}</main>
+        <BackToTop />
         <footer className="site-footer">
           <span>© {new Date().getFullYear()} Alyvero</span>
           <div><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/contact">Contact</a></div>
