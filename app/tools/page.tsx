@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { tools } from "@/lib/tools";
+import { ToolIllustration } from "@/components/ToolIllustration";
 
 const siteUrl = "https://www.alyvero.co.ke";
 
@@ -33,6 +34,7 @@ export default function ToolsPage() {
       <div className="tool-directory">
         {tools.map((tool) => (
           <article className="directory-card" key={tool.slug}>
+            <ToolIllustration tool={tool.slug} />
             <h2><Link href={`/${tool.slug}`}>{tool.name}</Link></h2>
             <p>{tool.longDescription}</p>
             <p><strong>Supports:</strong> {tool.supported.join(", ")}</p>
