@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 320">
+<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#6C5CE7"/><stop offset="1" stop-color="#2F80ED"/></linearGradient></defs>
+<rect width="520" height="320" rx="32" fill="#F5F3FF"/><circle cx="440" cy="64" r="54" fill="#DDEBFF"/><circle cx="76" cy="260" r="48" fill="#E8E2FF"/>
+<rect x="92" y="42" width="170" height="224" rx="18" fill="#fff" stroke="#D8D4EA" stroke-width="4"/>
+<path d="M208 42v58h54" fill="#EEEAFE"/><path d="M208 42l54 58h-54z" fill="#DCD5FF"/>
+<rect x="119" y="125" width="82" height="40" rx="9" fill="#F04438"/><text x="160" y="152" text-anchor="middle" font-family="Arial" font-weight="800" font-size="20" fill="#fff">PDF</text>
+<path d="M121 190h110M121 210h82" stroke="#CBD0DA" stroke-width="8" stroke-linecap="round"/>
+<path d="M284 154h72" stroke="url(#g)" stroke-width="12" stroke-linecap="round"/><path d="M342 130l30 24-30 24" fill="none" stroke="url(#g)" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="382" y="80" width="92" height="154" rx="14" fill="#fff" stroke="#C9D8F5" stroke-width="4"/>
+<rect x="400" y="108" width="56" height="58" rx="8" fill="#2F80ED"/><text x="428" y="147" text-anchor="middle" font-family="Arial" font-weight="900" font-size="28" fill="#fff">W</text>
+<path d="M400 190h58M400 207h38" stroke="#CBD0DA" stroke-width="7" stroke-linecap="round"/></svg>
