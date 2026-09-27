@@ -97,27 +97,9 @@ main { min-height:calc(100vh - 120px); }
 .directory-card p { margin: 8px 0; }
 .directory-card .tool-link { display: inline-block; margin-top: 8px; }
 
-.alyvero-mini-art { width:100%; height:112px; display:flex; align-items:center; justify-content:center; margin-bottom:16px; }
-.alyvero-mini-art svg { width:180px; height:110px; overflow:visible; }
-.art-paper { fill:#fff; stroke:#c9ced8; stroke-width:2.2; }
-.art-fold { fill:none; stroke:#c9ced8; stroke-width:2.2; }
-.art-fold-fill { fill:#eef1f5; stroke:#c9ced8; stroke-width:2.2; }
-.art-label { fill:#111827; font-size:13px; font-weight:900; letter-spacing:.04em; font-family:Arial,Helvetica,sans-serif; }
-.art-line { fill:none; stroke:#d0d5dd; stroke-width:3; stroke-linecap:round; }
-.art-arrow { fill:none; stroke:#667085; stroke-width:2.8; stroke-linecap:round; stroke-linejoin:round; }
-.art-image { fill:#f2f4f7; stroke:#c9ced8; stroke-width:2; }
-.art-sun { fill:#98a2b3; }
-.art-mountain { fill:none; stroke:#667085; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+.tool-image-wrap { width:100%; height:150px; display:flex; align-items:center; justify-content:center; margin-bottom:16px; overflow:hidden; border-radius:14px; }
+.tool-image { width:100%; height:150px; display:block; object-fit:cover; border-radius:14px; }
 
-.tool-illustration { width: 100%; height: 92px; display:block; margin-bottom:16px; overflow:visible; }
-.alyvero-illustration-sheet { fill:#fff; stroke:#cfd5df; stroke-width:2; }
-.alyvero-illustration-fold { fill:none; stroke:#cfd5df; stroke-width:2; }
-.alyvero-illustration-label { fill:#344054; font-size:10px; font-weight:800; letter-spacing:.04em; font-family:Arial,Helvetica,sans-serif; }
-.alyvero-illustration-arrow { fill:none; stroke:#667085; stroke-width:2.5; stroke-linecap:round; stroke-linejoin:round; }
-.alyvero-illustration-lines { fill:none; stroke:#d0d5dd; stroke-width:3; stroke-linecap:round; }
-.alyvero-illustration-image { fill:#f2f4f7; stroke:#cfd5df; stroke-width:2; }
-.alyvero-illustration-mountain { fill:none; stroke:#667085; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
-.alyvero-illustration-sun { fill:#d0d5dd; }
 @media (max-width:900px) { .tool-grid { grid-template-columns:repeat(2,1fr); } }
 @media (max-width:640px) {
   .site-header { padding:0 16px; }
@@ -132,7 +114,8 @@ main { min-height:calc(100vh - 120px); }
   .content-page h1 { font-size:40px; }
   .site-footer { flex-direction:column; align-items:center; text-align:center; }
   .tool-illustration { height:86px; }
-  .tool-card { min-height:270px; }
+  .tool-card { min-height:320px; }
+  .tool-image-wrap, .tool-image { height:140px; }
   .tool-directory { grid-template-columns:1fr; }
   .related-grid { grid-template-columns:1fr; }
   .guide-grid { grid-template-columns:1fr; }
