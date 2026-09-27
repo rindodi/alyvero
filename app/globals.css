@@ -163,6 +163,7 @@ main { min-height:calc(100vh - 120px); }
 
 /* Mobile navigation: compact hamburger, desktop navigation stays unchanged */
 .mobile-menu-button, .mobile-navigation, .mobile-menu-backdrop { display:none; }
+.site-header .mobile-navigation { display:none; }
 @media (max-width:640px) {
   .desktop-navigation { display:none !important; }
   .mobile-menu-button {
@@ -210,7 +211,7 @@ main { min-height:calc(100vh - 120px); }
     flex-direction:column;
     gap:3px;
   }
-  .mobile-navigation.open { display:flex; }
+  .site-header .mobile-navigation.open { display:flex; }
   .mobile-navigation a {
     padding:14px 15px;
     border-radius:11px;
