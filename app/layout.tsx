@@ -39,7 +39,7 @@ export const metadata: Metadata = {
   icons: { icon: "/icon.svg", shortcut: "/icon.svg" },
 };
 
-export const viewport: Viewport = { width: "device-width", initialScale: 1, themeColor: "#111827" };
+export const viewport: Viewport = { width: "device-width", initialScale: 1, themeColor: "#5b4ee8" };
 
 const organizationSchema = {
   "@context": "https://schema.org",
@@ -65,7 +65,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <body>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify([organizationSchema, websiteSchema]) }} />
         <header className="site-header">
-          <a className="brand" href="/" aria-label="Alyvero home">ALYVERO</a>
+          <a className="brand-logo" href="/" aria-label="Alyvero home">
+            <img src="/logo.svg" alt="Alyvero" width="210" height="48" />
+          </a>
           <nav aria-label="Main navigation">
             <a href="/" aria-current="page">Home</a>
             <a href="/tools">Tools</a>
