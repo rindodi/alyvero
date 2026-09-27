@@ -1,4 +1,4 @@
-# Alyvero
+const llms = `# Alyvero
 
 Alyvero is a browser-first utility platform for common digital file problems.
 
@@ -28,3 +28,10 @@ Alyvero is a browser-first utility platform for common digital file problems.
 - Image to PDF uses automatic page sizing in the current MVP; exact A4 or Letter layout controls are not currently promised.
 
 Alyvero focuses on practical file conversion, compression and creation rather than a general-purpose directory of unrelated tools.
+`;
+
+export function GET() {
+  return new Response(llms, {
+    headers: { "Content-Type": "text/plain; charset=utf-8" },
+  });
+}
