@@ -67,6 +67,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <header className="site-header">
           <a className="brand" href="/" aria-label="Alyvero home">ALYVERO</a>
           <nav aria-label="Main navigation">
+            <a href="/" aria-current="page">Home</a>
             <a href="/tools">Tools</a>
             <a href="/about">About</a>
             <a href="/contact">Contact</a>
