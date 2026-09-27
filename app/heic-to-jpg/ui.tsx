@@ -17,7 +17,7 @@ export default function Tool() {
       for (const file of files) {
         const converted = await heic2any({ blob:file, toType:"image/jpeg", quality:0.9 });
         const blob = Array.isArray(converted) ? converted[0] : converted;
-        output.push({url:URL.createObjectURL(blob),name:file.name.replace(/\.heic$/i,"")+".jpg",size:blob.size});
+        output.push({url:URL.createObjectURL(blob),name:file.name.replace(/\.(heic|heif)$/i,"")+".jpg",size:blob.size});
       }
       setResults(output);
       setMessage("Your JPG files are ready.");
