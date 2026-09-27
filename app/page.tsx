@@ -31,7 +31,19 @@ export default function Home() {
         <div className="tool-grid">
           {tools.map((tool) => (
             <a className="tool-card" href={`/${tool.slug}`} key={tool.slug}>
-              <div className="tool-visual" aria-hidden="true"><span>{tool.slug === "pdf-to-word" || tool.slug === "compress-pdf" ? "PDF" : tool.slug === "heic-to-jpg" ? "HEIC" : "IMG"}</span></div>
+              <div className="alyvero-mini-art" aria-hidden="true">
+  <svg viewBox="0 0 180 110" role="presentation">
+    <rect x="38" y="12" width="76" height="88" rx="8" className="art-paper"/>
+    <path d="M94 12v22h20" className="art-fold"/>
+    <path d="M94 12l20 22H94z" className="art-fold-fill"/>
+    <text x="52" y="57" className="art-label">{tool.slug === "heic-to-jpg" ? "HEIC" : tool.slug === "compress-image" || tool.slug === "image-to-pdf" ? "IMG" : "PDF"}</text>
+    <path d="M52 70h48M52 80h38" className="art-line"/>
+    <path d="M123 56h34m-10-10 10 10-10 10" className="art-arrow"/>
+    <rect x="119" y="69" width="38" height="25" rx="5" className="art-image"/>
+    <circle cx="131" cy="77" r="3" className="art-sun"/>
+    <path d="M123 90l9-9 7 6 6-5 9 8" className="art-mountain"/>
+  </svg>
+</div>
               <h3>{tool.name}</h3>
               <p>{tool.description}</p>
               <span className="tool-link">Open tool →</span>
