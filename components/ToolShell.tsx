@@ -1,11 +1,11 @@
 "use client";
 
-import { useState, type ChangeEvent, type DragEvent, type ReactNode } from "react";
+import { useRef, useState, type ChangeEvent, type DragEvent, type ReactNode } from "react";
 
 export function formatBytes(bytes: number) {
   if (!bytes) return "0 B";
   const units = ["B", "KB", "MB", "GB"];
-  const i = Math.floor(Math.log(bytes) / Math.log(1024));
+  const i = Math.min(Math.floor(Math.log(bytes) / Math.log(1024)), units.length - 1);
   return `${(bytes / Math.pow(1024, i)).toFixed(i ? 1 : 0)} ${units[i]}`;
 }
 
@@ -34,14 +34,17 @@ export default function ToolShell({
 }: Props) {
   const [files, setFilesState] = useState<File[]>([]);
   const [dragging, setDragging] = useState(false);
+  const inputRef = useRef<HTMLInputElement>(null);
 
   const setFiles = (next: File[]) => {
     const clean = multiple ? next : next.slice(0, 1);
     setFilesState(clean);
+    if (!clean.length && inputRef.current) inputRef.current.value = "";
   };
 
   const onInput = (e: ChangeEvent<HTMLInputElement>) => {
     setFiles(Array.from(e.target.files ?? []));
+    e.target.value = "";
   };
 
   const onDrop = (e: DragEvent<HTMLDivElement>) => {
@@ -70,6 +73,7 @@ export default function ToolShell({
             Choose file{multiple ? "s" : ""}
           </label>
           <input
+            ref={inputRef}
             id="file-upload"
             className="file-input"
             type="file"
