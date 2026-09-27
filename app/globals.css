@@ -143,3 +143,20 @@ main { min-height:calc(100vh - 120px); }
 .directory-card:nth-child(5) { border-top:4px solid #f59e0b; }
 .content-page h1, .tool-header h1 { color:#18213a; }
 .secondary { border-color:#dcdff0; background:#fff; color:#4f46d8; }
+
+/* Alyvero ecosystem hubs */
+.ecosystem-page { max-width:1080px; }
+.ecosystem-section { margin-top:42px; }
+.ecosystem-section h2 { margin-bottom:16px; }
+.ecosystem-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; }
+.ecosystem-card { background:var(--surface); border:1px solid var(--line); border-radius:16px; padding:22px; box-shadow:0 8px 26px rgba(91,78,232,.055); display:flex; flex-direction:column; min-height:210px; }
+.ecosystem-card:nth-child(1) { border-top:4px solid #6c5ce7; }
+.ecosystem-card:nth-child(2) { border-top:4px solid #ff7a59; }
+.ecosystem-card:nth-child(3) { border-top:4px solid #00bfa6; }
+.ecosystem-card h3 { margin:0 0 10px; font-size:21px; }
+.ecosystem-card p { color:var(--muted); line-height:1.65; margin:0; }
+.workflow-list { display:grid; gap:12px; }
+.workflow-list > div { display:flex; gap:16px; align-items:flex-start; padding:18px 20px; background:var(--surface); border:1px solid var(--line); border-radius:14px; }
+.workflow-list strong { min-width:240px; }
+.workflow-list span { color:var(--muted); line-height:1.6; }
+@media (max-width:760px) { .ecosystem-grid { grid-template-columns:1fr; } .workflow-list > div { display:block; } .workflow-list strong { display:block; margin-bottom:6px; } }
