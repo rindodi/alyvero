@@ -14,6 +14,38 @@ export const metadata: Metadata = {
   },
 };
 
+function ToolArt({ slug }: { slug: string }) {
+  const kind = slug === "pdf-to-word" ? "PDF → DOCX" :
+    slug === "compress-pdf" ? "PDF ↓" :
+    slug === "compress-image" ? "IMG ↓" :
+    slug === "heic-to-jpg" ? "HEIC → JPG" : "IMG → PDF";
+  return (
+    <div className="alyvero-tool-art" aria-hidden="true">
+      <svg viewBox="0 0 240 130" role="presentation">
+        <rect x="28" y="18" width="78" height="92" rx="9" className="art-paper"/>
+        <path d="M82 18v25h24" className="art-fold"/>
+        <path d="M82 18l24 25H82z" className="art-fold-fill"/>
+        <text x="41" y="62" className="art-label">{kind}</text>
+        <path d="M42 78h45M42 89h34" className="art-line"/>
+        {slug === "compress-pdf" || slug === "compress-image" ? (
+          <>
+            <path d="M130 51v42M120 61l10-10 10 10M120 83l10 10 10-10" className="art-arrow"/>
+            <rect x="159" y="47" width="48" height="56" rx="7" className="art-image"/>
+            <path d="M167 91l11-13 8 8 8-10 10 15" className="art-mountain"/>
+          </>
+        ) : (
+          <>
+            <path d="M119 66h36m-10-11 11 11-11 11" className="art-arrow"/>
+            <rect x="165" y="50" width="48" height="58" rx="7" className="art-image"/>
+            <circle cx="177" cy="62" r="4" className="art-sun"/>
+            <path d="M171 98l11-14 9 8 8-10 10 16" className="art-mountain"/>
+          </>
+        )}
+      </svg>
+    </div>
+  );
+}
+
 export default function Home() {
   return (
     <div className="container">
@@ -31,19 +63,7 @@ export default function Home() {
         <div className="tool-grid">
           {tools.map((tool) => (
             <a className="tool-card" href={`/${tool.slug}`} key={tool.slug}>
-              <div className="alyvero-mini-art" aria-hidden="true">
-  <svg viewBox="0 0 180 110" role="presentation">
-    <rect x="38" y="12" width="76" height="88" rx="8" className="art-paper"/>
-    <path d="M94 12v22h20" className="art-fold"/>
-    <path d="M94 12l20 22H94z" className="art-fold-fill"/>
-    <text x="52" y="57" className="art-label">{tool.slug === "heic-to-jpg" ? "HEIC" : tool.slug === "compress-image" || tool.slug === "image-to-pdf" ? "IMG" : "PDF"}</text>
-    <path d="M52 70h48M52 80h38" className="art-line"/>
-    <path d="M123 56h34m-10-10 10 10-10 10" className="art-arrow"/>
-    <rect x="119" y="69" width="38" height="25" rx="5" className="art-image"/>
-    <circle cx="131" cy="77" r="3" className="art-sun"/>
-    <path d="M123 90l9-9 7 6 6-5 9 8" className="art-mountain"/>
-  </svg>
-</div>
+              <ToolArt slug={tool.slug} />
               <h3>{tool.name}</h3>
               <p>{tool.description}</p>
               <span className="tool-link">Open tool →</span>
