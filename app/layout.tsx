@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
 import "./globals.css";
+import MobileNav from "@/components/MobileNav";
 
 const siteUrl = "https://www.alyvero.co.ke";
 
@@ -68,13 +69,14 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           <a className="brand-logo" href="/" aria-label="Alyvero home">
             <img src="/logo.svg" alt="Alyvero" width="210" height="48" />
           </a>
-          <nav aria-label="Main navigation">
+          <nav className="desktop-navigation" aria-label="Main navigation">
             <a href="/" aria-current="page">Home</a>
             <a href="/tools">Tools</a>
             <a href="/guides">Guides</a>
             <a href="/about">About</a>
             <a href="/contact">Contact</a>
           </nav>
+          <MobileNav />
         </header>
         <main>{children}</main>
         <footer className="site-footer">
