@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { tools } from "@/lib/tools";
-import { ToolIllustration } from "@/components/ToolIllustration";
 
 export const metadata: Metadata = {
   title: "Free Online File Tools for PDF & Images",
@@ -32,8 +31,10 @@ export default function Home() {
         <div className="tool-grid">
           {tools.map((tool) => (
             <a className="tool-card" href={`/${tool.slug}`} key={tool.slug}>
-              <ToolIllustration tool={tool.slug} />
-              <h3>{tool.name}</h3><p>{tool.description}</p><span className="tool-link">Open tool →</span>
+              <div className="tool-visual" aria-hidden="true"><span>{tool.slug === "pdf-to-word" || tool.slug === "compress-pdf" ? "PDF" : tool.slug === "heic-to-jpg" ? "HEIC" : "IMG"}</span></div>
+              <h3>{tool.name}</h3>
+              <p>{tool.description}</p>
+              <span className="tool-link">Open tool →</span>
             </a>
           ))}
         </div>
