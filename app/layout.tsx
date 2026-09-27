@@ -71,7 +71,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             <img src="/logo.svg" alt="Alyvero" width="210" height="48" />
           </a>
           <nav className="desktop-navigation" aria-label="Main navigation">
-            <a href="/" aria-current="page">Home</a>
+            <a href="/">Home</a>
             <a href="/tools">Tools</a>
             <a href="/guides">Guides</a>
             <a href="/about">About</a>
