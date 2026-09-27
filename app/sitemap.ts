@@ -8,6 +8,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const core = [
     "",
     "/tools",
+    "/pdf-tools",
+    "/image-tools",
+    "/guides",
     "/pdf-to-word",
     "/compress-pdf",
     "/compress-image",
