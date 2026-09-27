@@ -226,3 +226,41 @@ main { min-height:calc(100vh - 120px); }
     outline:none;
   }
 }
+
+
+/* Page scroll controls */
+.page-scroll-controls {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 40;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.page-scroll-controls button {
+  width: 44px;
+  height: 44px;
+  border: 1px solid #dcdff0;
+  border-radius: 12px;
+  background: rgba(255,255,255,.96);
+  color: #4f46d8;
+  box-shadow: 0 8px 24px rgba(24,33,58,.14);
+  font-size: 22px;
+  line-height: 1;
+  font-weight: 800;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+}
+.page-scroll-controls button:hover {
+  background: #f0efff;
+  transform: translateY(-1px);
+}
+.page-scroll-controls button:focus-visible {
+  outline: 3px solid #c9c5ff;
+  outline-offset: 2px;
+}
+@media (max-width:640px) {
+  .page-scroll-controls { right: 12px; bottom: 14px; }
+  .page-scroll-controls button { width: 42px; height: 42px; }
+}
