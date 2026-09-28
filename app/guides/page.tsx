@@ -3,10 +3,10 @@ import Link from "next/link";
 import { pdfGuides } from "@/lib/compressPdfGuides";
 
 export const metadata: Metadata = {
-  title: "File Problem Guides",
+  title: "PDF & Image File Problem Guides",
   description: "Practical Alyvero guides explaining common PDF and image file problems, limitations and workflows.",
   alternates: { canonical: "/guides" },
-  openGraph: { title: "File Problem Guides | Alyvero", description: "Practical guides for solving common PDF and image file problems.", url: "https://www.alyvero.co.ke/guides", type: "website" },
+  openGraph: { title: "File Problem Guides | Alyvero", description: "Practical guides for solving common PDF and image file problems.", url: "https://www.alyvero.co.ke/guides", type: "website", images: [{ url: "/opengraph-image" }] },
 };
 
 export default function GuidesPage() {
