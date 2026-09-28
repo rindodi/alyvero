@@ -12,6 +12,7 @@ export const metadata: Metadata = {
     description: "Convert text-based PDF files into editable Word documents in your browser.",
     url: "https://www.alyvero.co.ke/pdf-to-word",
     type: "website",
+    images: [{ url: "/opengraph-image" }],
   },
 };
 
