@@ -1,0 +1,19 @@
+{
+  "name": "Alyvero — Online File Tools",
+  "short_name": "Alyvero",
+  "description": "Simple browser-based tools for converting, compressing and creating PDF and image files.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#5b4ee8",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "96x96",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
