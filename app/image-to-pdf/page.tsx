@@ -12,6 +12,7 @@ export const metadata: Metadata = {
     description: "Combine one or more JPG or PNG images into a PDF directly in your browser.",
     url: "https://www.alyvero.co.ke/image-to-pdf",
     type: "website",
+    images: [{ url: "/opengraph-image" }],
   },
 };
 
