@@ -4,10 +4,10 @@ import { tools } from "@/lib/tools";
 import { pdfGuides } from "@/lib/compressPdfGuides";
 
 export const metadata: Metadata = {
-  title: "PDF Tools & Guides",
+  title: "Online PDF Tools & Guides",
   description: "Alyvero PDF tools and practical guides for converting, compressing and working with PDF files.",
   alternates: { canonical: "/pdf-tools" },
-  openGraph: { title: "PDF Tools & Guides | Alyvero", description: "Practical PDF tools and guides for common document problems.", url: "https://www.alyvero.co.ke/pdf-tools", type: "website" },
+  openGraph: { title: "PDF Tools & Guides | Alyvero", description: "Practical PDF tools and guides for common document problems.", url: "https://www.alyvero.co.ke/pdf-tools", type: "website", images: [{ url: "/opengraph-image" }] },
 };
 
 export default function PdfToolsPage() {
