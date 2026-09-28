@@ -14,31 +14,34 @@ const routes = [
 
 const failures = [];
 
-for (const route of routes) {
+async function checkRoute(route) {
   const url = new URL(route, baseUrl).toString();
 
   try {
     const response = await fetch(url, {
       redirect: "follow",
-      headers: { "User-Agent": "Alyvero-HealthCheck/1.0" },
+      headers: { "User-Agent": "Alyvero-HealthCheck/1.1" },
     });
 
     const body = await response.text();
 
     if (!response.ok) {
       failures.push(`${route}: HTTP ${response.status}`);
-      continue;
+      return;
     }
 
     if (!body.toLowerCase().includes("alyvero")) {
       failures.push(`${route}: response does not contain Alyvero`);
+      return;
     }
 
     console.log(`OK  ${response.status}  ${route}`);
   } catch (error) {
-    failures.push(`${route}: ${error.message}`);
+    failures.push(`${route}: ${error instanceof Error ? error.message : String(error)}`);
   }
 }
+
+await Promise.all(routes.map(checkRoute));
 
 if (failures.length) {
   console.error("\nAlyvero health check failed:");
