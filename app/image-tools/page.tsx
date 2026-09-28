@@ -3,10 +3,10 @@ import Link from "next/link";
 import { tools } from "@/lib/tools";
 
 export const metadata: Metadata = {
-  title: "Image Tools & Guides",
+  title: "Online Image Tools & Guides",
   description: "Alyvero image tools for compressing images, converting HEIC photos to JPG and creating PDFs from images.",
   alternates: { canonical: "/image-tools" },
-  openGraph: { title: "Image Tools & Guides | Alyvero", description: "Practical browser-based image tools for common file compatibility and size problems.", url: "https://www.alyvero.co.ke/image-tools", type: "website" },
+  openGraph: { title: "Image Tools & Guides | Alyvero", description: "Practical browser-based image tools for common file compatibility and size problems.", url: "https://www.alyvero.co.ke/image-tools", type: "website", images: [{ url: "/opengraph-image" }] },
 };
 
 export default function ImageToolsPage() {
