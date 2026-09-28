@@ -38,7 +38,7 @@ export default function Home() {
             </a>
           ))}
         </div>
-        <p className="section-link"><Link href="/tools">Browse all Alyvero tools →</Link></p>
+        <p className="section-link"><Link href="/tools">Browse all Alyvero tools →</Link> <span aria-hidden="true"> · </span><Link href="/pdf-tools">PDF Tools</Link> <span aria-hidden="true"> · </span><Link href="/image-tools">Image Tools</Link></p>
       </section>
       <section className="section info-section">
         <h2>Tools for common PDF and image problems</h2>
