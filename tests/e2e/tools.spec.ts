@@ -1,21 +1,34 @@
 import { test, expect } from "@playwright/test";
+import { PDFDocument } from "pdf-lib";
 
-const pdfBytes = new TextEncoder().encode(
-  "%PDF-1.4\n1 0 obj\n<< /Type /Catalog /Pages 2 0 R >>\nendobj\n2 0 obj\n<< /Type /Pages /Kids [3 0 R] /Count 1 >>\nendobj\n3 0 obj\n<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Contents 4 0 R >>\nendobj\n4 0 obj\n<< /Length 0 >>\nstream\n\nendstream\nendobj\nxref\n0 5\n0000000000 65535 f \n0000000009 00000 n \n0000000058 00000 n \n0000000115 00000 n \n0000000218 00000 n \ntrailer\n<< /Size 5 /Root 1 0 R >>\nstartxref\n266\n%%EOF\n"
-);
+const pdfBytesPromise = PDFDocument.create().then(async (pdf) => {
+  const page = pdf.addPage([612, 792]);
+  page.drawText("Alyvero browser test PDF");
+  return Buffer.from(await pdf.save());
+});
 
 const pngBytes = Buffer.from(
   "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNk+A8AAQUBAScY42YAAAAASUVORK5CYII=",
   "base64"
 );
 
-async function upload(page: import("@playwright/test").Page, path: string, name: string, mimeType: string, buffer: Buffer) {
+async function upload(
+  page: import("@playwright/test").Page,
+  path: string,
+  name: string,
+  mimeType: string,
+  buffer: Buffer
+) {
   await page.goto(path);
   await page.locator("#file-upload").setInputFiles({ name, mimeType, buffer });
   await expect(page.locator(".file-list")).toContainText(name);
 }
 
-async function downloadAndAssert(page: import("@playwright/test").Page, buttonText: string, extension: string) {
+async function downloadAndAssert(
+  page: import("@playwright/test").Page,
+  buttonText: string,
+  extension: string
+) {
   const downloadPromise = page.waitForEvent("download");
   await page.getByRole("link", { name: new RegExp(buttonText, "i") }).click();
   const download = await downloadPromise;
@@ -35,7 +48,7 @@ test("PDF to Word converts a PDF into a DOCX download", async ({ page }) => {
 });
 
 test("Compress PDF processes a PDF and provides a PDF download", async ({ page }) => {
-  await upload(page, "/compress-pdf", "test.pdf", "application/pdf", Buffer.from(pdfBytes));
+  await upload(page, "/compress-pdf", "test.pdf", "application/pdf", await pdfBytesPromise);
   await page.getByRole("button", { name: "Compress PDF" }).click();
   await expect(page.getByText(/PDF is ready|could not be reduced further/)).toBeVisible();
   await downloadAndAssert(page, "Download PDF", ".pdf");
@@ -55,7 +68,7 @@ test("Image to PDF creates a PDF download", async ({ page }) => {
   await downloadAndAssert(page, "Download PDF", ".pdf");
 });
 
-test("HEIC to JPG accepts HEIC input and exposes the converter", async ({ page }) => {
+test("HEIC to JPG exposes the converter and accepts HEIC input", async ({ page }) => {
   await page.goto("/heic-to-jpg");
   await expect(page.getByRole("heading", { name: "HEIC to JPG" })).toBeVisible();
   await expect(page.locator("#file-upload")).toHaveAttribute("accept", /heic/i);
