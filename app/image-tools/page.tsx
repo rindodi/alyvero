@@ -23,6 +23,7 @@ export default function ImageToolsPage() {
         <Link className="tool-link" href={`/${tool.slug}`}>Open tool →</Link>
       </article>)}</div>
     </section>
+    <section className="ecosystem-section"><h2>Explore Alyvero tools</h2><p>Browse <Link href="/tools">all Alyvero tools</Link> or switch to <Link href="/pdf-tools">PDF tools and guides</Link> for document tasks.</p></section>
     <section className="ecosystem-section">
       <h2>Common image workflows</h2>
       <div className="workflow-list">
