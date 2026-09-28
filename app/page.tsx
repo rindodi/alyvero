@@ -11,6 +11,7 @@ export const metadata: Metadata = {
     description: "Simple browser-based tools for converting, compressing and creating PDF and image files.",
     url: "https://www.alyvero.co.ke/",
     type: "website",
+    images: [{ url: "/opengraph-image" }],
   },
 };
 
