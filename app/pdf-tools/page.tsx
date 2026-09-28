@@ -28,6 +28,7 @@ export default function PdfToolsPage() {
       <h2>PDF problem guides</h2>
       <div className="guide-grid">{pdfGuides.map(guide => <Link className="guide-card" href={`/${guide.slug}`} key={guide.slug}><strong>{guide.title}</strong><span>{guide.description}</span></Link>)}</div>
     </section>
+    <section className="ecosystem-section"><h2>Explore Alyvero tools</h2><p>Browse <Link href="/tools">all Alyvero tools</Link> or switch to <Link href="/image-tools">image tools</Link> for photo and image tasks.</p></section>
     <section className="ecosystem-section">
       <h2>Need a specific PDF result?</h2>
       <p>If your goal is a smaller attachment, start with <Link href="/compress-pdf">Compress PDF</Link>. If you need an editable document, use <Link href="/pdf-to-word">PDF to Word</Link>. If your source is a set of photos, <Link href="/image-to-pdf">Image to PDF</Link> can turn them into one document.</p>
