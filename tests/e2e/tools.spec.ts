@@ -70,7 +70,7 @@ test("Image to PDF creates a PDF download", async ({ page }) => {
 
 test("HEIC to JPG exposes the converter and accepts HEIC input", async ({ page }) => {
   await page.goto("/heic-to-jpg");
-  await expect(page.getByRole("heading", { name: "HEIC to JPG" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "HEIC to JPG", exact: true })).toBeVisible();
   await expect(page.locator("#file-upload")).toHaveAttribute("accept", /heic/i);
   await expect(page.getByRole("button", { name: "Convert to JPG" })).toBeDisabled();
 });
