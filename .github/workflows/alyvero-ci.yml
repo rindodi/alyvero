@@ -15,7 +15,7 @@ concurrency:
 
 jobs:
   verify:
-    name: Typecheck, build and health check
+    name: Full verification
     runs-on: ubuntu-latest
     timeout-minutes: 15
 
@@ -32,11 +32,5 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Typecheck
-        run: npm run typecheck
-
-      - name: Production build
-        run: npm run build
-
-      - name: Production health check
-        run: npm run healthcheck
+      - name: Full verification
+        run: npm run verify
