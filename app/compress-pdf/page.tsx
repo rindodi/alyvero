@@ -14,6 +14,7 @@ export const metadata: Metadata = {
     description: "Reduce PDF file size in your browser and compare the result.",
     url: "https://www.alyvero.co.ke/compress-pdf",
     type: "website",
+    images: [{ url: "/opengraph-image" }],
   },
 };
 
