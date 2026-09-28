@@ -15,7 +15,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     title: guide.title,
     description: guide.description,
     alternates: { canonical: `/${guide.slug}` },
-    openGraph: { title: guide.title, description: guide.description, url: `https://alyvero.vercel.app/${guide.slug}`, type: "article" },
+    openGraph: { title: guide.title, description: guide.description, url: `https://www.alyvero.co.ke/${guide.slug}`, type: "article" },
   };
 }
 
