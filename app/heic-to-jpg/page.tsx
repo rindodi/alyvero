@@ -12,6 +12,7 @@ export const metadata: Metadata = {
     description: "Convert HEIC photos to JPG images directly in your browser, including multiple files.",
     url: "https://www.alyvero.co.ke/heic-to-jpg",
     type: "website",
+    images: [{ url: "/opengraph-image" }],
   },
 };
 
