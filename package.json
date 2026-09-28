@@ -5,7 +5,10 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "typecheck": "tsc --noEmit",
+    "healthcheck": "node scripts/health-check.mjs",
+    "verify": "npm run typecheck && npm run build && npm run healthcheck"
   },
   "dependencies": {
     "docx": "9.7.2",
