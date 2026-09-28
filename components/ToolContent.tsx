@@ -81,7 +81,7 @@ export default function ToolContent({ slug }: { slug: string }) {
             </Link>
           ) : null)}
         </div>
-        <p className="tool-hub-link"><Link href="/tools">View all Alyvero tools →</Link></p>
+        <p className="tool-hub-link"><Link href={["pdf-to-word", "compress-pdf", "image-to-pdf"].includes(slug) ? "/pdf-tools" : "/image-tools"}>{["pdf-to-word", "compress-pdf", "image-to-pdf"].includes(slug) ? "Explore all PDF tools →" : "Explore all image tools →"}</Link> <span aria-hidden="true"> · </span><Link href="/tools">View all Alyvero tools →</Link></p>
       </div>
     </section>
   );
