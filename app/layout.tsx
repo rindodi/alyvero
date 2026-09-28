@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 import "./globals.css";
 import MobileNav from "@/components/MobileNav";
 import BackToTop from "@/components/BackToTop";
+import PWARegistration from "./PWARegistration";
 
 const siteUrl = "https://www.alyvero.co.ke";
 
@@ -14,6 +15,7 @@ export const metadata: Metadata = {
   },
   description: "Free browser-based tools for converting, compressing and creating PDF and image files. PDF to Word, PDF compression, image compression, HEIC to JPG and image to PDF.",
   applicationName: "Alyvero",
+  manifest: "/manifest.webmanifest",
   category: "utilities",
   referrer: "origin-when-cross-origin",
   robots: {
@@ -66,6 +68,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     <html lang="en">
       <body>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify([organizationSchema, websiteSchema]) }} />
+        <PWARegistration />
         <header className="site-header">
           <a className="brand-logo" href="/" aria-label="Alyvero home">
             <img src="/logo.svg" alt="Alyvero" width="210" height="48" />
