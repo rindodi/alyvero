@@ -14,7 +14,7 @@ if (!pdfjsVersion) fail("pdfjs-dist dependency is missing");
 if (pdfjsVersion !== "6.3.289") fail(`unexpected pdfjs-dist version ${pdfjsVersion}`);
 
 const pdfTool = await fs.readFile(new URL("../app/pdf-to-word/ui.tsx", import.meta.url), "utf8");
-const workerMatch = pdfTool.match(/pdfjs-dist@(\\d+\\.\\d+\\.\\d+)\\/build\\/pdf\\.worker\\.mjs/);
+const workerMatch = pdfTool.match(/pdfjs-dist@(\d+\.\d+\.\d+)\/build\/pdf\.worker\.mjs/);
 if (!workerMatch) fail("PDF.js worker URL could not be detected");
 if (workerMatch[1] !== pdfjsVersion) {
   fail(`PDF.js API dependency ${pdfjsVersion} does not match worker ${workerMatch[1]}`);
