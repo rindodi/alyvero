@@ -12,6 +12,7 @@ export const metadata: Metadata = {
     description: "Reduce JPG, PNG or WebP image file size in your browser while balancing quality and size.",
     url: "https://www.alyvero.co.ke/compress-image",
     type: "website",
+    images: [{ url: "/opengraph-image" }],
   },
 };
 
