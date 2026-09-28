@@ -9,7 +9,8 @@
     "typecheck": "tsc --noEmit",
     "healthcheck": "node scripts/health-check.mjs",
     "verify": "npm run typecheck && npm run build && npm run conversion-smoke && npm run healthcheck",
-    "conversion-smoke": "node scripts/conversion-smoke.mjs"
+    "conversion-smoke": "node scripts/conversion-smoke.mjs",
+    "e2e": "playwright test"
   },
   "dependencies": {
     "docx": "9.7.2",
@@ -24,6 +25,7 @@
     "@types/node": "^24.0.0",
     "@types/react": "^19.1.0",
     "@types/react-dom": "^19.1.0",
-    "typescript": "^5.9.0"
+    "typescript": "^5.9.0",
+    "@playwright/test": "^1.55.0"
   }
 }
