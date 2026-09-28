@@ -14,7 +14,7 @@ export default function Tool() {
     setOutput(null);
     try {
       const pdfjs = await import("pdfjs-dist/legacy/build/pdf.mjs");
-      pdfjs.GlobalWorkerOptions.workerSrc = "https://unpkg.com/pdfjs-dist@5.4.149/build/pdf.worker.mjs";
+      pdfjs.GlobalWorkerOptions.workerSrc = "https://unpkg.com/pdfjs-dist@5.7.284/build/pdf.worker.mjs";
       const buffer = await files[0].arrayBuffer();
       const pdf = await pdfjs.getDocument({ data: buffer }).promise;
       const paragraphs: Paragraph[] = [];
