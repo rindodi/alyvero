@@ -21,7 +21,7 @@ export default function Home(){
       <button type="submit">Find a tool</button>
     </form>
    </div>
- 
+  </section>
 
   <section className="section section-rule" id="tools">
    <p className="eyebrow">Core tools</p><h2>One task. One clear tool.</h2>
