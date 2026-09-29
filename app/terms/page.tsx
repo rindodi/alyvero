@@ -10,4 +10,4 @@ export default function Terms(){return <div className="container content-page">
 <h2>7. Advertising and third-party links</h2><p>Alyvero may display third-party advertising or link to third-party services. Alyvero does not control the content, privacy practices or availability of those services.</p>
 <h2>8. Limitation of responsibility</h2><p>To the extent permitted by law, Alyvero is not responsible for loss caused by reliance on a conversion result, compression result, service interruption or failure to keep a separate copy of an important file.</p>
 <h2>9. Contact</h2><p>Questions about these terms can be sent through the <a href="/contact">Alyvero contact form</a>.</p>
-</div>
+</div>}
