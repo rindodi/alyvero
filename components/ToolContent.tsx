@@ -56,6 +56,7 @@ export default function ToolContent({ slug }: { slug: string }) {
   const related = (item?.related ?? [])
     .map((slug) => tools.find((tool) => tool.slug === slug))
     .filter(Boolean);
+  const tool = tools.find((entry) => entry.slug === slug);
 
   if (!item) return null;
 
@@ -71,6 +72,18 @@ export default function ToolContent({ slug }: { slug: string }) {
           ) : null}
         </section>
       ))}
+      {tool ? (
+        <section className="content-block">
+          <h2>Common questions</h2>
+          {tool.faqs.map((faq) => (
+            <details key={faq.question}>
+              <summary>{faq.question}</summary>
+              <p>{faq.answer}</p>
+            </details>
+          ))}
+          <p>For important files, keep the original until you have checked the downloaded result. See the <Link href="/privacy">Privacy Policy</Link> for Alyvero's approach to cookies, analytics, advertising and contact-form information.</p>
+        </section>
+      ) : null}
       <div className="related-tools">
         <h2>Related Alyvero tools</h2>
         <div className="related-grid">
