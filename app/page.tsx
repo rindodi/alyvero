@@ -3,76 +3,62 @@ import Link from "next/link";
 import { tools } from "@/lib/tools";
 
 export const metadata: Metadata = {
-  title: "Free Online File Tools for PDF & Images",
-  description: "Alyvero provides free browser-based tools for PDF and image problems: PDF to Word, PDF compression, image compression, HEIC to JPG and image to PDF.",
-  alternates: { canonical: "/" },
-  openGraph: {
-    title: "Free Online File Tools for PDF & Images | Alyvero",
-    description: "Simple browser-based tools for converting, compressing and creating PDF and image files.",
-    url: "https://www.alyvero.co.ke/",
-    type: "website",
-    images: [{ url: "/opengraph-image" }],
-  },
+  title:"Simple Online File Tools for PDF & Images",
+  description:"Focused browser-based tools for everyday PDF and image problems. Convert, compress and create files without an account.",
+  alternates:{canonical:"/"},
+  openGraph:{title:"Alyvero — Simple Online File Tools",description:"Focused browser-based tools for everyday PDF and image problems.",url:"https://www.alyvero.co.ke/",type:"website",images:[{url:"/opengraph-image"}]},
 };
 
-export default function Home() {
-  return (
-    <div className="container">
-      <section className="hero">
-        <p className="eyebrow">Alyvero online file tools</p>
-        <h1>Solve it.<br />Get it done.</h1>
-        <p>Simple online tools for converting, compressing and creating files directly from your browser. Choose a specific tool, process your file and download the result.</p>
-        <form className="search-box" action="/tools">
-          <input name="q" placeholder="What do you need to do?" aria-label="Search Alyvero tools" />
-          <button type="submit">Find a tool</button>
-        </form>
-      </section>
-
-      <section className="section" id="tools">
-        <h2>Popular tools</h2>
-        <div className="tool-grid">
-          {tools.map((tool) => (
-            <a className="tool-card" href={`/${tool.slug}`} key={tool.slug}>
-              <div className="tool-image-wrap"><img className="tool-image" src={`/illustrations/${tool.slug}.svg`} alt="" aria-hidden="true" /></div>
-              <h3>{tool.name}</h3>
-              <p>{tool.description}</p>
-              <span className="tool-link">Open tool →</span>
-            </a>
-          ))}
-        </div>
-        <p className="section-link"><Link href="/tools">Browse all Alyvero tools →</Link> <span aria-hidden="true"> · </span><Link href="/pdf-tools">PDF Tools</Link> <span aria-hidden="true"> · </span><Link href="/image-tools">Image Tools</Link></p>
-      </section>
-
-      <section className="section info-section">
-        <h2>Tools for common PDF and image problems</h2>
-        <p>Alyvero focuses on practical file tasks rather than a large directory of unrelated utilities. The current toolkit covers document conversion, PDF and image compression, photo compatibility and creating PDFs from images. Each tool page explains supported formats, limitations and what to check after processing.</p>
-        <div className="steps">
-          <div><strong>1. Choose a tool</strong><p>Pick the conversion, compression or file-creation task you need.</p></div>
-          <div><strong>2. Select your file</strong><p>Choose a supported file from your phone or computer.</p></div>
-          <div><strong>3. Get your result</strong><p>Process the file and download the finished result.</p></div>
-        </div>
-      </section>
-
-      <section className="section">
-        <h2>What Alyvero can help with</h2>
-        <p>Need an editable document from a PDF? Start with <Link href="/pdf-to-word">PDF to Word</Link>. Trying to meet an upload or email size limit? Use <Link href="/compress-pdf">Compress PDF</Link> or <Link href="/compress-image">Compress Image</Link>. If a phone photo is saved as HEIC, use <Link href="/heic-to-jpg">HEIC to JPG</Link>. To combine photos into one document, use <Link href="/image-to-pdf">Image to PDF</Link>.</p>
-      </section>
-
-      <section className="section">
-        <h2>How Alyvero approaches file processing</h2>
-        <p>Alyvero is designed around focused tools instead of a one-size-fits-all file service. Where practical, processing happens in the browser so the task can be completed without creating an account. Each tool states the file types it supports and its known limitations. Results should always be checked before an important upload, submission or document is shared.</p>
-        <p>For example, <Link href="/pdf-to-word">PDF to Word</Link> is intended for text-based PDFs rather than promising OCR for scanned documents. <Link href="/compress-pdf">Compress PDF</Link> explains why an already-optimized PDF may not become much smaller. These limitations are part of the tool information rather than hidden from the user.</p>
-      </section>
-
-      <section className="section">
-        <h2>Privacy-conscious file processing</h2>
-        <p>Alyvero uses browser-first processing where practical. Tool pages explain supported formats, limitations and processing expectations before you use them. See the <Link href="/privacy">Privacy Policy</Link> for information about cookies, analytics, advertising and contact-form data.</p>
-      </section>
-
-      <section className="section">
-        <h2>Need help choosing a tool?</h2>
-        <p>If you are unsure which tool fits a file problem, start with the <Link href="/tools">tool directory</Link> or read the <Link href="/guides">file problem guides</Link>. You can also <Link href="/contact">contact Alyvero</Link> to report a bug or send feedback about a tool.</p>
-      </section>
+export default function Home(){
+ return <div className="container">
+  <section className="hero">
+   <div>
+    <p className="eyebrow">Alyvero / file utilities</p>
+    <h1>Solve the file.<br/>Move on.</h1>
+    <p>Focused online tools for the PDF and image problems that interrupt everyday work. Pick the task, process your file and keep the result.</p>
+    <form className="search-box" action="/tools">
+      <input name="q" placeholder="What do you need to do?" aria-label="Search Alyvero tools"/>
+      <button type="submit">Find a tool</button>
+    </form>
+   </div>
+   <div className="hero-specimen" aria-label="Example file workflow">
+    <div className="specimen-head"><span>FILE DESK</span><span>PDF / IMAGE</span></div>
+    <div className="specimen-sheet">
+      <div className="specimen-line blue"/><div className="specimen-line"/><div className="specimen-line short"/><div className="specimen-line"/><div className="specimen-line short"/>
     </div>
-  );
+   </div>
+  </section>
+
+  <section className="section section-rule" id="tools">
+   <p className="eyebrow">Core tools</p><h2>One task. One clear tool.</h2>
+   <p>Five focused utilities cover the common PDF and image jobs Alyvero supports today.</p>
+   <div className="tool-grid">{tools.map(tool=><a className="tool-card" href={`/${tool.slug}`} key={tool.slug}>
+     <div className="tool-image-wrap"><img className="tool-image" src={`/illustrations/${tool.slug}.svg`} alt="" aria-hidden="true"/></div>
+     <h3>{tool.name}</h3><p>{tool.description}</p><span className="tool-link">Open tool →</span>
+   </a>)}</div>
+   <p className="section-link"><Link href="/tools">Browse all tools →</Link> · <Link href="/pdf-tools">PDF tools</Link> · <Link href="/image-tools">Image tools</Link></p>
+  </section>
+
+  <section className="section info-section">
+   <p className="eyebrow" style={{color:"#9fb2ff"}}>The workflow</p>
+   <h2>Less hunting. More done.</h2>
+   <p>There is no need to learn a large dashboard. Start with the file problem you actually have.</p>
+   <div className="steps">
+    <div><strong>Choose the task</strong><p>Open the tool that matches the result you need.</p></div>
+    <div><strong>Work with your file</strong><p>Select a supported file and follow the tool's instructions.</p></div>
+    <div><strong>Check the result</strong><p>Download the new file and keep the original until you are satisfied.</p></div>
+   </div>
+  </section>
+
+  <section className="section">
+   <p className="eyebrow">Why Alyvero</p><h2>Useful information stays close to the action.</h2>
+   <p>Every tool explains supported formats and known limitations before you use it. Where practical, processing happens in the browser. Alyvero does not require an account for the core tools.</p>
+   <p>For example, <Link href="/pdf-to-word">PDF to Word</Link> is intended for text-based PDFs rather than promising OCR for scanned pages. <Link href="/compress-pdf">Compress PDF</Link> reports the actual before-and-after file size instead of promising a fixed reduction.</p>
+  </section>
+
+  <section className="section section-rule">
+   <p className="eyebrow">Need context?</p><h2>Start with the problem.</h2>
+   <p>Read the <Link href="/guides">file problem guides</Link> for practical explanations, or go straight to <Link href="/tools">the tool directory</Link>. If something does not work as expected, <Link href="/contact">contact Alyvero</Link>.</p>
+  </section>
+ </div>
 }
