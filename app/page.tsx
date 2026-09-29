@@ -21,13 +21,7 @@ export default function Home(){
       <button type="submit">Find a tool</button>
     </form>
    </div>
-   <div className="hero-specimen" aria-label="Example file workflow">
-    <div className="specimen-head"><span>FILE DESK</span><span>PDF / IMAGE</span></div>
-    <div className="specimen-sheet">
-      <div className="specimen-line blue"/><div className="specimen-line"/><div className="specimen-line short"/><div className="specimen-line"/><div className="specimen-line short"/>
-    </div>
-   </div>
-  </section>
+ 
 
   <section className="section section-rule" id="tools">
    <p className="eyebrow">Core tools</p><h2>One task. One clear tool.</h2>
