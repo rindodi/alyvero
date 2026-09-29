@@ -13,4 +13,4 @@ export default function Privacy(){return <div className="container content-page"
 <h2>10. Your choices and requests</h2><p>You can stop using Alyvero at any time. Where applicable, you may request information about personal data submitted directly to Alyvero or ask for correction or deletion, subject to legal and operational requirements.</p>
 <h2>11. Policy changes</h2><p>This policy may be updated when Alyvero adds features, analytics, advertising or other services. The latest version will be published on this page with an updated date.</p>
 <h2>12. Contact</h2><p>For privacy questions or requests, use the <a href="/contact">Alyvero contact form</a>.</p>
-</div>
+</div>}
