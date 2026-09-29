@@ -3,7 +3,6 @@ import type { ReactNode } from "react";
 import Script from "next/script";
 import "./globals.css";
 import MobileNav from "@/components/MobileNav";
-import BackToTop from "@/components/BackToTop";
 import PWARegistration from "./PWARegistration";
 
 const siteUrl = "https://www.alyvero.co.ke";
@@ -32,7 +31,7 @@ export default function RootLayout({children}:{children:ReactNode}){
    <nav className="desktop-navigation" aria-label="Main navigation"><a href="/">Home</a><a href="/tools">Tools</a><a href="/guides">Guides</a><a href="/about">About</a><a href="/contact">Contact</a></nav>
    <MobileNav/>
   </header>
-  <main>{children}</main><BackToTop/>
+  <main>{children}</main>
   <footer className="site-footer"><span>© {new Date().getFullYear()} Alyvero</span><div className="footer-links"><a href="/tools">Tools</a><a href="/guides">Guides</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/contact">Contact</a></div><div className="powered-by">Powered by <a href="https://www.fixtech.co.ke" target="_blank" rel="noopener noreferrer">FixTech</a></div></footer>
  </body></html>
 }
