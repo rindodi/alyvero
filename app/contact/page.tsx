@@ -1,43 +1,15 @@
-export const metadata = {
-  title: "Contact Alyvero",
-  description:
-    "Contact Alyvero with product feedback, bug reports, questions and partnership enquiries.",
-};
-
-export default function Contact() {
-  return (
-    <div className="container">
-      <div className="content-page">
-        <h1>Contact Alyvero</h1>
-        <p>Use this page to report a problem with a tool, send product feedback, ask a question about Alyvero or discuss a partnership. Clear reports help us reproduce problems and improve the tools.</p>
-
-        <h2>What to include in a bug report</h2>
-        <p>Tell us which tool you were using, what type of file you selected, what you expected to happen and what happened instead. If an error appears, include the exact message where possible. Do not send passwords, payment details or other sensitive information in the message.</p>
-
-        <h2>Tool feedback</h2>
-        <p>If a conversion, compression or generated file does not look right, explain what you noticed and the device or browser you were using. Keeping the original file until the result has been checked is recommended.</p>
-
-        <h2>Partnership and general enquiries</h2>
-        <p>For partnership enquiries or questions that are not related to a specific tool, use the same form and describe the request clearly. Alyvero does not require an account to use its public tools.</p>
-
-        <form className="contact-form" action="https://formsubmit.co/rindodi@gmail.com" method="POST">
-          <input type="hidden" name="_subject" value="Alyvero contact form" />
-          <input type="hidden" name="_captcha" value="true" />
-          <input type="hidden" name="_template" value="table" />
-          <input type="hidden" name="_next" value="https://www.alyvero.co.ke/contact?sent=1" />
-
-          <label htmlFor="name">Name</label>
-          <input id="name" name="name" type="text" required autoComplete="name" />
-
-          <label htmlFor="email">Email</label>
-          <input id="email" name="email" type="email" required autoComplete="email" />
-
-          <label htmlFor="message">Message</label>
-          <textarea id="message" name="message" rows={7} required />
-
-          <button className="primary" type="submit">Send message</button>
-        </form>
-      </div>
-    </div>
-  );
-}
+import type { Metadata } from "next";
+export const metadata:Metadata={title:"Contact Alyvero",description:"Contact Alyvero about product feedback, bug reports, questions and partnership enquiries."};
+export default function Contact(){return <div className="container content-page">
+<p className="eyebrow">Alyvero / contact</p><h1>Tell us what happened.</h1>
+<p className="lead">Use the form for a bug report, product suggestion, question or partnership enquiry. Specific reports make file-tool problems much easier to reproduce.</p>
+<h2>For a bug report</h2><p>Include the tool you were using, the file type, what you expected and what happened instead. If an error appears, include its exact wording where possible.</p>
+<h2>For file-result problems</h2><p>Explain what looked wrong in the converted, compressed or generated file and mention the device and browser you were using. Keep your original file until the result has been checked.</p>
+<h2>Keep sensitive information out of messages</h2><p>Do not send passwords, payment details, private keys or other sensitive information through this form. If a file contains confidential information, describe the problem without attaching or copying that information into the message.</p>
+<form className="contact-form" action="https://formsubmit.co/rindodi@gmail.com" method="POST">
+<input type="hidden" name="_subject" value="Alyvero contact form"/><input type="hidden" name="_captcha" value="true"/><input type="hidden" name="_template" value="table"/><input type="hidden" name="_next" value="https://www.alyvero.co.ke/contact?sent=1"/>
+<label htmlFor="name">Name</label><input id="name" name="name" type="text" required autoComplete="name"/>
+<label htmlFor="email">Email</label><input id="email" name="email" type="email" required autoComplete="email"/>
+<label htmlFor="message">Message</label><textarea id="message" name="message" rows={7} required/>
+<button className="primary" type="submit">Send message</button>
+</form></div>}
