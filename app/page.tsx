@@ -1,78 +1,13 @@
-import type { Metadata } from "next";
-import Link from "next/link";
-import { tools } from "@/lib/tools";
-
-export const metadata: Metadata = {
-  title: "Free Online File Tools for PDF & Images",
-  description: "Alyvero provides free browser-based tools for PDF and image problems: PDF to Word, PDF compression, image compression, HEIC to JPG and image to PDF.",
-  alternates: { canonical: "/" },
-  openGraph: {
-    title: "Free Online File Tools for PDF & Images | Alyvero",
-    description: "Simple browser-based tools for converting, compressing and creating PDF and image files.",
-    url: "https://www.alyvero.co.ke/",
-    type: "website",
-    images: [{ url: "/opengraph-image" }],
-  },
-};
-
-export default function Home() {
-  return (
-    <div className="container">
-      <section className="hero">
-        <p className="eyebrow">Alyvero online file tools</p>
-        <h1>Solve it.<br />Get it done.</h1>
-        <p>Simple online tools for converting, compressing and creating files directly from your browser. Choose a specific tool, process your file and download the result.</p>
-        <form className="search-box" action="/tools">
-          <input name="q" placeholder="What do you need to do?" aria-label="Search Alyvero tools" />
-          <button type="submit">Find a tool</button>
-        </form>
-      </section>
-
-      <section className="section" id="tools">
-        <h2>Popular tools</h2>
-        <div className="tool-grid">
-          {tools.map((tool) => (
-            <a className="tool-card" href={`/${tool.slug}`} key={tool.slug}>
-              <div className="tool-image-wrap"><img className="tool-image" src={`/illustrations/${tool.slug}.svg`} alt="" aria-hidden="true" /></div>
-              <h3>{tool.name}</h3>
-              <p>{tool.description}</p>
-              <span className="tool-link">Open tool →</span>
-            </a>
-          ))}
-        </div>
-        <p className="section-link"><Link href="/tools">Browse all Alyvero tools →</Link> <span aria-hidden="true"> · </span><Link href="/pdf-tools">PDF Tools</Link> <span aria-hidden="true"> · </span><Link href="/image-tools">Image Tools</Link></p>
-      </section>
-
-      <section className="section info-section">
-        <h2>Tools for common PDF and image problems</h2>
-        <p>Alyvero focuses on practical file tasks rather than a large directory of unrelated utilities. The current toolkit covers document conversion, PDF and image compression, photo compatibility and creating PDFs from images. Each tool page explains supported formats, limitations and what to check after processing.</p>
-        <div className="steps">
-          <div><strong>1. Choose a tool</strong><p>Pick the conversion, compression or file-creation task you need.</p></div>
-          <div><strong>2. Select your file</strong><p>Choose a supported file from your phone or computer.</p></div>
-          <div><strong>3. Get your result</strong><p>Process the file and download the finished result.</p></div>
-        </div>
-      </section>
-
-      <section className="section">
-        <h2>What Alyvero can help with</h2>
-        <p>Need an editable document from a PDF? Start with <Link href="/pdf-to-word">PDF to Word</Link>. Trying to meet an upload or email size limit? Use <Link href="/compress-pdf">Compress PDF</Link> or <Link href="/compress-image">Compress Image</Link>. If a phone photo is saved as HEIC, use <Link href="/heic-to-jpg">HEIC to JPG</Link>. To combine photos into one document, use <Link href="/image-to-pdf">Image to PDF</Link>.</p>
-      </section>
-
-      <section className="section">
-        <h2>How Alyvero approaches file processing</h2>
-        <p>Alyvero is designed around focused tools instead of a one-size-fits-all file service. Where practical, processing happens in the browser so the task can be completed without creating an account. Each tool states the file types it supports and its known limitations. Results should always be checked before an important upload, submission or document is shared.</p>
-        <p>For example, <Link href="/pdf-to-word">PDF to Word</Link> is intended for text-based PDFs rather than promising OCR for scanned documents. <Link href="/compress-pdf">Compress PDF</Link> explains why an already-optimized PDF may not become much smaller. These limitations are part of the tool information rather than hidden from the user.</p>
-      </section>
-
-      <section className="section">
-        <h2>Privacy-conscious file processing</h2>
-        <p>Alyvero uses browser-first processing where practical. Tool pages explain supported formats, limitations and processing expectations before you use them. See the <Link href="/privacy">Privacy Policy</Link> for information about cookies, analytics, advertising and contact-form data.</p>
-      </section>
-
-      <section className="section">
-        <h2>Need help choosing a tool?</h2>
-        <p>If you are unsure which tool fits a file problem, start with the <Link href="/tools">tool directory</Link> or read the <Link href="/guides">file problem guides</Link>. You can also <Link href="/contact">contact Alyvero</Link> to report a bug or send feedback about a tool.</p>
-      </section>
-    </div>
-  );
-}
+import type{Metadata}from"next";import Link from"next/link";import{tools}from"@/lib/tools";
+export const metadata:Metadata={title:"Free Online PDF & Image Tools",description:"Simple browser-based tools for common PDF and image problems: convert, compress, merge, split, resize and create files.",alternates:{canonical:"/"},openGraph:{title:"Free Online PDF & Image Tools | Alyvero",description:"Simple browser-based tools for common PDF and image problems.",url:"https://www.alyvero.co.ke/",type:"website",images:[{url:"/opengraph-image"}]}};
+const popular=["pdf-to-word","compress-pdf","compress-image","heic-to-jpg","image-to-pdf"];
+export default function Home(){const popularTools=popular.map(s=>tools.find(t=>t.slug===s)!).filter(Boolean);const pdfTools=tools.filter(t=>["pdf-to-word","compress-pdf","merge-pdf","split-pdf","pdf-to-jpg"].includes(t.slug));const imageTools=tools.filter(t=>["compress-image","heic-to-jpg","image-to-pdf","resize-image"].includes(t.slug));return <div className="container home-page">
+<section className="hero"><p className="eyebrow">Alyvero online file tools</p><h1>Solve it.<br/>Get it done.</h1><p>Simple online tools for converting, compressing and creating files directly from your browser. Choose a task, process your file and download the result.</p><form className="search-box" action="/tools"><input name="q" placeholder="What do you need to do?" aria-label="Search Alyvero tools"/><button type="submit">Find a tool</button></form></section>
+<section className="section" id="tools"><h2>Core tools</h2><div className="tool-grid">{popularTools.map(tool=><a className="tool-card" href={`/${tool.slug}`} key={tool.slug}><div className="tool-image-wrap"><img className="tool-image" src={`/illustrations/${tool.slug}.svg`} alt="" aria-hidden="true"/></div><h3>{tool.name}</h3><p>{tool.description}</p><span className="tool-link">Open tool →</span></a>)}</div><p className="section-link"><Link href="/tools">Browse all tools →</Link> · <Link href="/pdf-tools">PDF Tools</Link> · <Link href="/image-tools">Image Tools</Link></p></section>
+<section className="section"><h2>Popular file tasks</h2><div className="task-grid">{[["Need a smaller PDF?","Compress PDF","/compress-pdf"],["Need to combine documents?","Merge PDF","/merge-pdf"],["Need an editable document?","PDF to Word","/pdf-to-word"],["Need to convert PDF pages?","PDF to JPG","/pdf-to-jpg"],["Need a smaller image?","Resize Image","/resize-image"]].map(([q,n,u])=><Link className="task-card" href={u} key={u}><strong>{q}</strong><span>{n} →</span></Link>)}</div></section>
+<section className="section hub-preview"><div><p className="eyebrow">PDF tools</p><h2>PDF tools for everyday document problems</h2><p>Merge, split, compress and convert PDFs without hunting through unrelated utilities.</p><Link className="tool-link" href="/pdf-tools">View PDF tools →</Link></div><div className="hub-links">{pdfTools.map(t=><Link href={`/${t.slug}`} key={t.slug}>{t.name}</Link>)}</div></section>
+<section className="section hub-preview"><div><p className="eyebrow">Image tools</p><h2>Image tools for size and format problems</h2><p>Compress, resize, convert and turn images into useful documents.</p><Link className="tool-link" href="/image-tools">View image tools →</Link></div><div className="hub-links">{imageTools.map(t=><Link href={`/${t.slug}`} key={t.slug}>{t.name}</Link>)}</div></section>
+<section className="section info-section"><h2>How Alyvero works</h2><div className="steps"><div><strong>1. Choose a tool</strong><p>Pick the file task you need.</p></div><div><strong>2. Select your file</strong><p>Choose a supported file from your phone or computer.</p></div><div><strong>3. Get your result</strong><p>Process it and download the finished file.</p></div></div></section>
+<section className="section"><h2>Privacy-conscious file processing</h2><p>Alyvero is designed around browser-first processing where practical. Each tool explains supported formats and important limitations before you use it. Read the <Link href="/privacy">Privacy Policy</Link> for information about cookies, analytics, advertising and contact-form data.</p></section>
+<section className="section"><h2>Need help?</h2><p>Browse the <Link href="/guides">file problem guides</Link>, explore <Link href="/tools">all tools</Link>, or <Link href="/contact">contact Alyvero</Link> to report a problem.</p></section>
+</div>
