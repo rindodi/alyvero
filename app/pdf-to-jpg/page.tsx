@@ -1,0 +1,3 @@
+import type{Metadata}from"next";import Tool from"./ui";import ToolStructuredData from"@/components/ToolStructuredData";import ToolContent from"@/components/ToolContent";
+export const metadata:Metadata={title:"PDF to JPG Online",description:"Convert PDF pages to JPG images directly in your browser.",alternates:{canonical:"/pdf-to-jpg"},openGraph:{title:"PDF to JPG Online | Alyvero",description:"Convert PDF pages to JPG images directly in your browser.",url:"https://www.alyvero.co.ke/pdf-to-jpg",type:"website",images:[{url:"/opengraph-image"}]}};
+export default function Page(){return <><ToolStructuredData name="PDF to JPG Online" description="Convert PDF pages to JPG images directly in your browser." slug="pdf-to-jpg"/><Tool/><ToolContent slug="pdf-to-jpg"/></>}
