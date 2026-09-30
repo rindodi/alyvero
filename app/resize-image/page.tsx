@@ -1,0 +1,3 @@
+import type{Metadata}from"next";import Tool from"./ui";import ToolStructuredData from"@/components/ToolStructuredData";import ToolContent from"@/components/ToolContent";
+export const metadata:Metadata={title:"Resize Image Online",description:"Resize JPG, PNG and WebP images in your browser.",alternates:{canonical:"/resize-image"},openGraph:{title:"Resize Image Online | Alyvero",description:"Resize JPG, PNG and WebP images in your browser.",url:"https://www.alyvero.co.ke/resize-image",type:"website",images:[{url:"/opengraph-image"}]}};
+export default function Page(){return <><ToolStructuredData name="Resize Image Online" description="Resize JPG, PNG and WebP images in your browser." slug="resize-image"/><Tool/><ToolContent slug="resize-image"/></>}
