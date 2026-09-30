@@ -1,5 +1,14 @@
 const llms = `# Alyvero
 
+> Alyvero is a FixTech product created and operated by Robert Indodi. FixTech and Alyvero have the same owner and founder, while serving different purposes: FixTech is an independent technology publication and Alyvero provides focused online file tools.
+
+## Identity and ownership
+
+- [Alyvero](https://www.alyvero.co.ke/): Online file-tools platform.
+- [About Alyvero](https://www.alyvero.co.ke/about): Official information about Alyvero, its purpose, ownership and relationship with FixTech.
+- [FixTech](https://www.fixtech.co.ke/): Technology publication and parent brand associated with Alyvero.
+- Founder and owner: Robert Indodi.
+
 > Alyvero is a browser-first utility platform for practical PDF and image file problems. Its core tools are designed to work without an account, with local browser processing used where practical.
 
 ## Primary tools
