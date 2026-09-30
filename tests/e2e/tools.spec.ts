@@ -28,7 +28,7 @@ async function downloadAndAssert(page: import("@playwright/test").Page, buttonTe
 }
 
 test("PDF to Word converts a PDF into a DOCX download", async ({ page }) => {
-  await upload(page, "/pdf-to-word", "test.pdf", "application/pdf", await pdfBytesPromise);
+  await upload(page, "/pdf-to-word", "test.pdf", "application/pdf", Buffer.from(pdfBytes));
   await page.getByRole("button", { name: "Convert to Word" }).click();
   await expect(page.getByText("Your Word document is ready.")).toBeVisible();
   await downloadAndAssert(page, "Download Word document", ".docx");
