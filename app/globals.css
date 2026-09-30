@@ -146,7 +146,7 @@ main{min-height:calc(100vh - 160px)}
     display: block !important;
     width: 100% !important;
     height: auto !important;
-    aspect-ratio: 4 / 5 !important;
+    aspect-ratio: 16 / 10 !important;
     margin: 0 0 15px !important;
     border-radius: 10px !important;
   }
