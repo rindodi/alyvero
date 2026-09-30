@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 };
 
 export default function Home(){
- return <div className="container">
+ return <div className="container home-page">
   <section className="hero">
    <div>
     <p className="eyebrow">Alyvero / file utilities</p>
