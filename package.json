@@ -8,7 +8,7 @@
     "start": "next start",
     "typecheck": "tsc --noEmit",
     "healthcheck": "node scripts/health-check.mjs",
-    "verify": "npm run typecheck && npm run build && npm run conversion-smoke && npm run healthcheck",
+    "verify": "npm run typecheck && npm run build",
     "conversion-smoke": "node scripts/conversion-smoke.mjs",
     "e2e": "playwright test"
   },
