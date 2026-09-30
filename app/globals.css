@@ -92,3 +92,24 @@ main{min-height:calc(100vh - 160px)}
 .home-page .steps>div:first-child strong{color:var(--blue)}
 .home-page .steps>div:nth-child(2) strong{color:#247562}
 .home-page .steps>div:nth-child(3) strong{color:#b66f17}
+
+/* Desktop homepage balance */
+@media(min-width:981px){
+  .container{width:min(1180px,calc(100% - 56px))}
+  .hero{padding:58px 0 46px}
+  .hero h1{font-size:clamp(52px,6.8vw,82px)}
+  .section{padding:30px 0 58px}
+  .tool-grid{grid-template-columns:repeat(5,minmax(0,1fr));gap:14px}
+  .tool-card{min-height:292px;padding:14px;border-radius:12px}
+  .tool-image-wrap{height:112px;margin-bottom:13px;border-radius:9px}
+  .tool-image{height:112px}
+  .tool-card h3{font-size:15px;margin-bottom:6px}
+  .tool-card p{font-size:12.5px;line-height:1.5}
+  .tool-link{padding-top:13px;font-size:12.5px}
+  .section h2{font-size:25px}
+}
+/* Keep tool accents restrained rather than multicoloured cards */
+.tool-card:before{background:var(--blue)}
+.tool-card:nth-child(2):before,.tool-card:nth-child(3):before,.tool-card:nth-child(4):before,.tool-card:nth-child(5):before{background:var(--blue)}
+.tool-card:nth-child(1) .tool-image-wrap,.tool-card:nth-child(2) .tool-image-wrap,.tool-card:nth-child(3) .tool-image-wrap,.tool-card:nth-child(4) .tool-image-wrap,.tool-card:nth-child(5) .tool-image-wrap{background:#f1f4fa}
+.tool-card:nth-child(2) .tool-link,.tool-card:nth-child(3) .tool-link,.tool-card:nth-child(4) .tool-link,.tool-card:nth-child(5) .tool-link{color:var(--blue)}
