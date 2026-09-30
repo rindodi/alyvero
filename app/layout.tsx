@@ -22,7 +22,7 @@ export const viewport: Viewport={width:"device-width",initialScale:1,themeColor:
 const organizationSchema={"@context":"https://schema.org","@type":"Organization","@id":siteUrl+"/#organization",name:"Alyvero",url:siteUrl,description:"Browser-based utility platform for common digital file conversion, compression and creation tasks."};
 const websiteSchema={"@context":"https://schema.org","@type":"WebSite","@id":siteUrl+"/#website",name:"Alyvero",url:siteUrl,publisher:{"@id":siteUrl+"/#organization"},inLanguage:"en"};
 export default function RootLayout({children}:{children:ReactNode}){
- return <html lang="en"><body>
+ return <html lang="en"><body id="top">
   <Script id="google-adsense" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2571740083457217" crossOrigin="anonymous" strategy="beforeInteractive"/>
   <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify([organizationSchema,websiteSchema])}}/>
   <PWARegistration/>
@@ -32,6 +32,7 @@ export default function RootLayout({children}:{children:ReactNode}){
    <MobileNav/>
   </header>
   <main>{children}</main>
+  <a className="back-to-top" href="#top" aria-label="Back to top" title="Back to top">↑</a>
   <footer className="site-footer"><span>© {new Date().getFullYear()} Alyvero</span><div className="footer-links"><a href="/tools">Tools</a><a href="/guides">Guides</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/contact">Contact</a></div><div className="powered-by">Powered by <a href="https://www.fixtech.co.ke" target="_blank" rel="noopener noreferrer">FixTech</a></div></footer>
  </body></html>
 }
