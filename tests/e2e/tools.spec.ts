@@ -74,3 +74,49 @@ test("HEIC to JPG exposes the converter and accepts HEIC input", async ({ page }
   await expect(page.locator("#file-upload")).toHaveAttribute("accept", /heic/i);
   await expect(page.getByRole("button", { name: "Convert to JPG" })).toBeDisabled();
 });
+
+test("Merge PDF combines two PDFs and downloads the result", async ({ page }) => {
+  await page.goto("/merge-pdf");
+  const pdf = await pdfBytesPromise;
+  await page.locator("#file-upload").setInputFiles([
+    { name: "one.pdf", mimeType: "application/pdf", buffer: pdf },
+    { name: "two.pdf", mimeType: "application/pdf", buffer: pdf },
+  ]);
+  await page.getByRole("button", { name: "Merge PDFs" }).click();
+  await expect(page.getByText("Your merged PDF is ready.")).toBeVisible();
+  await downloadAndAssert(page, "Download merged PDF", ".pdf");
+});
+
+test("Split PDF creates page downloads", async ({ page }) => {
+  await upload(page, "/split-pdf", "test.pdf", "application/pdf", await pdfBytesPromise);
+  await page.getByRole("button", { name: "Split PDF" }).click();
+  await expect(page.getByText("Created 1 page PDFs.")).toBeVisible();
+  await downloadAndAssert(page, "Download (", ".pdf");
+});
+
+test("PDF to JPG creates a JPG download", async ({ page }) => {
+  await upload(page, "/pdf-to-jpg", "test.pdf", "application/pdf", await pdfBytesPromise);
+  await page.getByRole("button", { name: "Convert to JPG" }).click();
+  await expect(page.getByText("Created 1 JPG images.")).toBeVisible();
+  await downloadAndAssert(page, "Download (", ".jpg");
+});
+
+test("Resize Image creates a JPG download", async ({ page }) => {
+  await upload(page, "/resize-image", "test.png", "image/png", pngBytes);
+  await page.getByRole("button", { name: "Resize Image" }).click();
+  await expect(page.getByText("Your resized image is ready.")).toBeVisible();
+  await downloadAndAssert(page, "Download resized image", ".jpg");
+});
+
+test("JPG to PNG creates a PNG download", async ({ page }) => {
+  const jpgBytes = Buffer.from("/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAP//////////////////////////////////////////////////////////////////////////////////////2wBDAf//////////////////////////////////////////////////////////////////////////////////////wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAX/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIQAxAAAAH/AP/EABQQAQAAAAAAAAAAAAAAAAAAACD/2gAIAQEAAQUCf//EABQRAQAAAAAAAAAAAAAAAAAAACD/2gAIAQMBAT8Bf//EABQRAQAAAAAAAAAAAAAAAAAAACD/2gAIAQIBAT8Bf//EABQQAQAAAAAAAAAAAAAAAAAAACD/2gAIAQEABj8Cf//Z","base64");
+  await upload(page, "/jpg-to-png", "test.jpg", "image/jpeg", jpgBytes);
+  await page.getByRole("button", { name: "Convert to PNG" }).click();
+  await expect(page.getByText("Your PNG is ready.")).toBeVisible();
+  await downloadAndAssert(page, "Download PNG", ".png");
+});
+
+test("Homepage exposes all ten core tools", async ({ page }) => {
+  await page.goto("/");
+  await expect(page.locator(".home-page .tool-card")).toHaveCount(10);
+});
