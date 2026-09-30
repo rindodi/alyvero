@@ -1,0 +1,3 @@
+import type{Metadata}from"next";import Tool from"./ui";import ToolStructuredData from"@/components/ToolStructuredData";import ToolContent from"@/components/ToolContent";
+export const metadata:Metadata={title:"JPG to PNG Converter Online",description:"Convert JPG images to PNG directly in your browser.",alternates:{canonical:"/jpg-to-png"},openGraph:{title:"JPG to PNG Converter Online | Alyvero",description:"Convert JPG images to PNG directly in your browser.",url:"https://www.alyvero.co.ke/jpg-to-png",type:"website"}};
+export default function Page(){return <><ToolStructuredData name="JPG to PNG Converter Online" description="Convert JPG images to PNG directly in your browser." slug="jpg-to-png"/><Tool/><ToolContent slug="jpg-to-png"/></>}
