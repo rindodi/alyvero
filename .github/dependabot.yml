@@ -1,4 +1,6 @@
 version: 2
+
+# Keep Alyvero dependencies and GitHub Actions maintained automatically.
 updates:
   - package-ecosystem: "npm"
     directory: "/"
