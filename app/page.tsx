@@ -1,14 +1,253 @@
-import type{Metadata}from"next";import Link from"next/link";import Image from"next/image";import{tools}from"@/lib/tools";
-export const metadata:Metadata={title:"Free Online PDF & Image Tools for Easy File Tasks",description:"Free browser-based PDF and image tools to convert, compress, merge, split, resize and create files quickly and easily online.",alternates:{canonical:"/"},openGraph:{title:"Free Online PDF & Image Tools for Easy File Tasks | Alyvero",description:"Free browser-based PDF and image tools to convert, compress, merge, split, resize and create files online.",url:"https://www.alyvero.co.ke/",type:"website",images:[{url:"/opengraph-image"}]}};
-const structuredData={"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://www.alyvero.co.ke/#organization","name":"Alyvero","url":"https://www.alyvero.co.ke/","description":"Browser-based online tools for converting, compressing, resizing and creating PDF and image files.","founder":{"@type":"Person","name":"Robert Indodi"},"isPartOf":{"@type":"Organization","@id":"https://www.fixtech.co.ke/#organization","name":"FixTech","url":"https://www.fixtech.co.ke/"}},{"@type":"WebSite","@id":"https://www.alyvero.co.ke/#website","url":"https://www.alyvero.co.ke/","name":"Alyvero","description":"Free online PDF and image tools.","publisher":{"@id":"https://www.alyvero.co.ke/#organization"},"inLanguage":"en"},{"@type":"WebPage","@id":"https://www.alyvero.co.ke/#webpage","url":"https://www.alyvero.co.ke/","name":"Free Online PDF & Image Tools | Alyvero","description":"Simple browser-based tools for common PDF and image problems: convert, compress, merge, split, resize and create files.","isPartOf":{"@id":"https://www.alyvero.co.ke/#website"},"about":{"@id":"https://www.alyvero.co.ke/#organization"},"mainEntity":{"@id":"https://www.alyvero.co.ke/#tools"},"hasPart":[{"@id":"https://www.alyvero.co.ke/tools"},{"@id":"https://www.alyvero.co.ke/pdf-tools"},{"@id":"https://www.alyvero.co.ke/image-tools"},{"@id":"https://www.alyvero.co.ke/guides"}],"inLanguage":"en"},{"@type":"ItemList","@id":"https://www.alyvero.co.ke/#tools","name":"Alyvero Online File Tools","description":"Online tools for common PDF and image file tasks.","numberOfItems":10,"itemListElement":[{"@type":"ListItem","position":1,"url":"https://www.alyvero.co.ke/pdf-to-word"},{"@type":"ListItem","position":2,"url":"https://www.alyvero.co.ke/compress-pdf"},{"@type":"ListItem","position":3,"url":"https://www.alyvero.co.ke/compress-image"},{"@type":"ListItem","position":4,"url":"https://www.alyvero.co.ke/heic-to-jpg"},{"@type":"ListItem","position":5,"url":"https://www.alyvero.co.ke/image-to-pdf"},{"@type":"ListItem","position":6,"url":"https://www.alyvero.co.ke/merge-pdf"},{"@type":"ListItem","position":7,"url":"https://www.alyvero.co.ke/split-pdf"},{"@type":"ListItem","position":8,"url":"https://www.alyvero.co.ke/pdf-to-jpg"},{"@type":"ListItem","position":9,"url":"https://www.alyvero.co.ke/resize-image"},{"@type":"ListItem","position":10,"url":"https://www.alyvero.co.ke/jpg-to-png"}]}]};
-const popularTools=tools.slice(0,10);
-export default function Home(){const pdfTools=tools.filter(t=>["pdf-to-word","compress-pdf","merge-pdf","split-pdf","pdf-to-jpg"].includes(t.slug));const imageTools=tools.filter(t=>["compress-image","heic-to-jpg","image-to-pdf","resize-image","jpg-to-png"].includes(t.slug));return <div className="container home-page"><script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(structuredData)}}/>
-<section className="hero"><p className="eyebrow">Alyvero online file tools</p><h1>Solve it.<br/>Get it done.</h1><p>Simple online tools for converting, compressing and creating files directly from your browser. Choose a task, process your file and download the result.</p><form className="search-box" action="/tools"><input name="q" placeholder="What do you need to do?" aria-label="Search Alyvero tools"/><button type="submit">Find a tool</button></form></section>
-<section className="section" id="tools"><h2>Core tools</h2><div className="tool-grid">{popularTools.map(tool=><a className="tool-card" href={`/${tool.slug}`} key={tool.slug}><div className="tool-image-wrap"><Image className="tool-image" src={`/illustrations/${tool.slug}.svg`} alt="" width={480} height={300} sizes="(max-width: 640px) 45vw, (max-width: 980px) 45vw, 210px" priority={tool.slug==="pdf-to-word"}/></div><h3>{tool.name}</h3><p>{tool.description}</p><span className="tool-link">Open tool →</span></a>)}</div><p className="section-link"><Link href="/tools">Browse all tools →</Link> · <Link href="/pdf-tools">PDF Tools</Link> · <Link href="/image-tools">Image Tools</Link></p></section>
-<section className="section"><h2>Popular file tasks</h2><div className="task-grid">{[["Need a smaller PDF?","Compress PDF","/compress-pdf"],["Need to combine documents?","Merge PDF","/merge-pdf"],["Need an editable document?","PDF to Word","/pdf-to-word"],["Need to convert PDF pages?","PDF to JPG","/pdf-to-jpg"],["Need a smaller image?","Resize Image","/resize-image"]].map(([q,n,u])=><Link className="task-card" href={u} key={u}><strong>{q}</strong><span>{n} →</span></Link>)}</div></section>
-<section className="section hub-preview"><div><p className="eyebrow">PDF tools</p><h2>PDF tools for everyday document problems</h2><p>Merge, split, compress and convert PDFs without hunting through unrelated utilities.</p><Link className="tool-link" href="/pdf-tools">View PDF tools →</Link></div><div className="hub-links">{pdfTools.map(t=><Link href={`/${t.slug}`} key={t.slug}>{t.name}</Link>)}</div></section>
-<section className="section hub-preview"><div><p className="eyebrow">Image tools</p><h2>Image tools for size and format problems</h2><p>Compress, resize, convert and turn images into useful documents.</p><Link className="tool-link" href="/image-tools">View image tools →</Link></div><div className="hub-links">{imageTools.map(t=><Link href={`/${t.slug}`} key={t.slug}>{t.name}</Link>)}</div></section>
-<section className="section info-section"><h2>How Alyvero works</h2><div className="steps"><div><strong>1. Choose a tool</strong><p>Pick the file task you need.</p></div><div><strong>2. Select your file</strong><p>Choose a supported file from your phone or computer.</p></div><div><strong>3. Get your result</strong><p>Process it and download the finished file.</p></div></div></section>
-<section className="section"><h2>Privacy-conscious file processing</h2><p>Alyvero is designed around browser-first processing where practical. Each tool explains supported formats and important limitations before you use it. Read the <Link href="/privacy">Privacy Policy</Link> for information about cookies, analytics, advertising and contact-form data.</p></section>
-<section className="section"><h2>Need help?</h2><p>Browse the <Link href="/guides">file problem guides</Link>, explore <Link href="/tools">all tools</Link>, or <Link href="/contact">contact Alyvero</Link> to report a problem.</p></section>
-</div>}
+import type { Metadata } from "next";
+import Link from "next/link";
+import Image from "next/image";
+import { tools } from "@/lib/tools";
+
+export const metadata: Metadata = {
+  title: "Free Online PDF & Image Tools | Alyvero",
+  description:
+    "Free browser-based PDF and image tools for common file problems. Convert, compress, merge, split, resize and create files online.",
+  alternates: { canonical: "/" },
+  openGraph: {
+    title: "Free Online PDF & Image Tools | Alyvero",
+    description:
+      "Free browser-based tools for common PDF and image problems: convert, compress, merge, split, resize and create files online.",
+    url: "https://www.alyvero.co.ke/",
+    type: "website",
+    images: [{ url: "/opengraph-image" }],
+  },
+};
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.alyvero.co.ke/#organization",
+      name: "Alyvero",
+      url: "https://www.alyvero.co.ke/",
+      description:
+        "Browser-based online tools for converting, compressing, resizing and creating PDF and image files.",
+      founder: { "@type": "Person", name: "Robert Indodi" },
+      isPartOf: {
+        "@type": "Organization",
+        "@id": "https://www.fixtech.co.ke/#organization",
+        name: "FixTech",
+        url: "https://www.fixtech.co.ke/",
+      },
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.alyvero.co.ke/#website",
+      url: "https://www.alyvero.co.ke/",
+      name: "Alyvero",
+      description: "Free online PDF and image tools.",
+      publisher: { "@id": "https://www.alyvero.co.ke/#organization" },
+      inLanguage: "en",
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://www.alyvero.co.ke/#webpage",
+      url: "https://www.alyvero.co.ke/",
+      name: "Free Online PDF & Image Tools | Alyvero",
+      description:
+        "Free browser-based tools for common PDF and image problems: convert, compress, merge, split, resize and create files.",
+      isPartOf: { "@id": "https://www.alyvero.co.ke/#website" },
+      about: { "@id": "https://www.alyvero.co.ke/#organization" },
+      mainEntity: { "@id": "https://www.alyvero.co.ke/#tools" },
+      hasPart: [
+        { "@id": "https://www.alyvero.co.ke/tools" },
+        { "@id": "https://www.alyvero.co.ke/pdf-tools" },
+        { "@id": "https://www.alyvero.co.ke/image-tools" },
+        { "@id": "https://www.alyvero.co.ke/guides" },
+      ],
+      inLanguage: "en",
+    },
+    {
+      "@type": "ItemList",
+      "@id": "https://www.alyvero.co.ke/#tools",
+      name: "Alyvero Online File Tools",
+      description: "Online tools for common PDF and image file tasks.",
+      numberOfItems: 10,
+      itemListElement: [
+        "pdf-to-word",
+        "compress-pdf",
+        "compress-image",
+        "heic-to-jpg",
+        "image-to-pdf",
+        "merge-pdf",
+        "split-pdf",
+        "pdf-to-jpg",
+        "resize-image",
+        "jpg-to-png",
+      ].map((slug, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        url: `https://www.alyvero.co.ke/${slug}`,
+      })),
+    },
+  ],
+};
+
+const popularTools = tools.slice(0, 10);
+
+export default function Home() {
+  const pdfTools = tools.filter((t) =>
+    ["pdf-to-word", "compress-pdf", "merge-pdf", "split-pdf", "pdf-to-jpg"].includes(t.slug)
+  );
+  const imageTools = tools.filter((t) =>
+    ["compress-image", "heic-to-jpg", "image-to-pdf", "resize-image", "jpg-to-png"].includes(t.slug)
+  );
+
+  return (
+    <div className="container home-page">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
+
+      <section className="hero">
+        <p className="eyebrow">Alyvero online file tools</p>
+        <h1>Solve it.<br />Get it done.</h1>
+        <p>
+          Free browser-based tools for common PDF and image problems. Convert,
+          compress, merge, split, resize and transform files directly from your
+          phone or computer.
+        </p>
+        <form className="search-box" action="/tools">
+          <input
+            name="q"
+            placeholder="What do you need to do?"
+            aria-label="Search Alyvero tools"
+          />
+          <button type="submit">Find a tool</button>
+        </form>
+      </section>
+
+      <section className="section" id="tools">
+        <h2>Core tools</h2>
+        <div className="tool-grid">
+          {popularTools.map((tool) => (
+            <a className="tool-card" href={`/${tool.slug}`} key={tool.slug}>
+              <div className="tool-image-wrap">
+                <Image
+                  className="tool-image"
+                  src={`/illustrations/${tool.slug}.svg`}
+                  alt=""
+                  width={480}
+                  height={300}
+                  sizes="(max-width: 640px) 45vw, (max-width: 980px) 45vw, 210px"
+                  priority={tool.slug === "pdf-to-word"}
+                />
+              </div>
+              <h3>{tool.name}</h3>
+              <p>{tool.description}</p>
+              <span className="tool-link">Open tool →</span>
+            </a>
+          ))}
+        </div>
+        <p className="section-link">
+          <Link href="/tools">Browse all tools →</Link> ·{" "}
+          <Link href="/pdf-tools">PDF Tools</Link> ·{" "}
+          <Link href="/image-tools">Image Tools</Link>
+        </p>
+      </section>
+
+      <section className="section">
+        <h2>Popular file tasks</h2>
+        <div className="task-grid">
+          {[
+            ["Need a smaller PDF?", "Compress PDF", "/compress-pdf"],
+            ["Need to combine documents?", "Merge PDF", "/merge-pdf"],
+            ["Need an editable document?", "PDF to Word", "/pdf-to-word"],
+            ["Need to convert PDF pages?", "PDF to JPG", "/pdf-to-jpg"],
+            ["Need a smaller image?", "Resize Image", "/resize-image"],
+          ].map(([q, n, u]) => (
+            <Link className="task-card" href={u} key={u}>
+              <strong>{q}</strong>
+              <span>{n} →</span>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      <section className="section hub-preview">
+        <div>
+          <p className="eyebrow">PDF tools</p>
+          <h2>PDF tools for everyday document problems</h2>
+          <p>
+            Merge, split, compress and convert PDFs without hunting through
+            unrelated utilities.
+          </p>
+          <Link className="tool-link" href="/pdf-tools">View PDF tools →</Link>
+        </div>
+        <div className="hub-links">
+          {pdfTools.map((t) => <Link href={`/${t.slug}`} key={t.slug}>{t.name}</Link>)}
+        </div>
+      </section>
+
+      <section className="section hub-preview">
+        <div>
+          <p className="eyebrow">Image tools</p>
+          <h2>Image tools for size and format problems</h2>
+          <p>
+            Compress, resize, convert and turn images into useful documents.
+          </p>
+          <Link className="tool-link" href="/image-tools">View image tools →</Link>
+        </div>
+        <div className="hub-links">
+          {imageTools.map((t) => <Link href={`/${t.slug}`} key={t.slug}>{t.name}</Link>)}
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="info-section">
+          <p className="eyebrow">Why Alyvero</p>
+          <h2>File tools without the clutter</h2>
+          <p>
+            Alyvero focuses on everyday file problems instead of overwhelming
+            you with unrelated utilities. Choose the task, select your file,
+            process it in your browser where supported, and get your result.
+          </p>
+        </div>
+      </section>
+
+      <section className="section info-section">
+        <h2>How Alyvero works</h2>
+        <div className="steps">
+          <div>
+            <strong>1. Choose a tool</strong>
+            <p>Pick the file task you need.</p>
+          </div>
+          <div>
+            <strong>2. Select your file</strong>
+            <p>Choose a supported file from your phone or computer.</p>
+          </div>
+          <div>
+            <strong>3. Get your result</strong>
+            <p>Process it and download the finished file.</p>
+          </div>
+        </div>
+      </section>
+
+      <section className="section">
+        <h2>Privacy-conscious file processing</h2>
+        <p>
+          Alyvero is designed around browser-first processing where practical.
+          Each tool explains supported formats and important limitations before
+          you use it. Read the <Link href="/privacy">Privacy Policy</Link> for
+          information about cookies, analytics, advertising and contact-form data.
+        </p>
+      </section>
+
+      <section className="section">
+        <h2>Need help?</h2>
+        <p>
+          Browse the <Link href="/guides">file problem guides</Link>, explore{" "}
+          <Link href="/tools">all tools</Link>, or{" "}
+          <Link href="/contact">contact Alyvero</Link> to report a problem.
+        </p>
+      </section>
+    </div>
+  );
+}
