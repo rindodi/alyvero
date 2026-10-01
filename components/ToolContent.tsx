@@ -1,9 +1,9 @@
 import Link from "next/link";
 import { tools } from "@/lib/tools";
 
-type Section = { heading: string; paragraphs: string[]; bullets?: string[] };
+type Section = { heading: string; paragraphs: string[]; bullets?: string[] };\ntype GuideLink = { slug: string; title: string };
 
-const content: Record<string, { intro: string; sections: Section[]; related: string[] }> = {
+const content: Record<string, { intro: string; sections: Section[]; related: string[]; guides?: GuideLink[] }> = {
   "pdf-to-word": {
     intro: "Need to edit the text inside a PDF? Alyvero converts supported text-based PDFs into editable DOCX files in your browser. It is designed for documents where the text is already selectable rather than scanned pages.",
     sections: [
@@ -11,7 +11,7 @@ const content: Record<string, { intro: string; sections: Section[]; related: str
       { heading: "Before you convert", paragraphs: ["If you can select and copy text from the PDF, it is more likely to be suitable for this tool. A scanned document is usually an image inside a PDF and may need OCR before the text can be edited reliably."], bullets: ["Keep the original PDF until you have checked the DOCX.", "Expect complex layouts, columns, fonts or forms to need a quick review after conversion.", "Do not use this tool as a promise of perfect OCR for image-only PDFs."] },
       { heading: "After conversion", paragraphs: ["Open the DOCX and check headings, tables, spacing and page breaks before sending it on. If the source is a scanned document, use an OCR-capable workflow instead."] },
     ],
-    related: ["image-to-pdf", "compress-pdf", "compress-image"],
+    related: ["image-to-pdf", "compress-pdf", "compress-image"],\n    guides: [{ slug: "pdf-too-large-to-upload", title: "PDF too large to upload?" }, { slug: "reduce-pdf-size", title: "How to reduce PDF file size" }],
   },
   "compress-pdf": {
     intro: "A PDF can be too large for an upload form, email attachment or messaging app even when the document looks simple. Alyvero creates a new PDF and reports the actual before-and-after size so you can see whether the file became smaller.",
@@ -56,7 +56,7 @@ const content: Record<string, { intro: string; sections: Section[]; related: str
       { heading: "Check the file order", paragraphs: ["Alyvero combines files in the order selected. Before downloading the result, check that the pages appear in the intended sequence, especially when combining forms, receipts or supporting documents."] },
       { heading: "Before an important submission", paragraphs: ["Open the finished PDF and check page count, readability, orientation and any pages that contain signatures or forms. If the destination has a file-size limit, use Compress PDF after merging."] }
     ],
-    related:["split-pdf","compress-pdf","pdf-to-word"]
+    related:["split-pdf","compress-pdf","pdf-to-word"], guides:[{slug:"pdf-too-large-to-upload",title:"PDF too large to upload?"},{slug:"compress-pdf-without-losing-quality",title:"Compress without losing readability"}]
   },
   "split-pdf": {
     intro: "Separate the pages of a PDF into individual PDF files directly in your browser. This is useful when a large document contains pages that need to be submitted, shared or archived separately.",
@@ -65,7 +65,7 @@ const content: Record<string, { intro: string; sections: Section[]; related: str
       { heading: "Review the output", paragraphs: ["Open the generated files before sharing them. Check that the expected page content is present and that the filenames make sense for the task you are completing.", "Very large PDFs can use substantial browser memory. If the browser becomes unresponsive, try a smaller document or another modern browser."] },
       { heading: "Need the pages as images?", paragraphs: ["If the destination requires JPG images rather than PDFs, Alyvero's PDF to JPG tool can render PDF pages as separate images."] }
     ],
-    related:["merge-pdf","compress-pdf","pdf-to-jpg"]
+    related:["merge-pdf","compress-pdf","pdf-to-jpg"], guides:[{slug:"reduce-pdf-size",title:"How to reduce PDF file size"},{slug:"why-pdf-still-large-after-compression",title:"Why is my PDF still large?"}]
   },
   "pdf-to-jpg": {
     intro: "Turn PDF pages into JPG images when a website, form or application expects image files instead of a PDF. Alyvero renders the pages in your browser and creates a separate JPG for each page.",
@@ -74,7 +74,7 @@ const content: Record<string, { intro: string; sections: Section[]; related: str
       { heading: "What happens during conversion", paragraphs: ["Each PDF page is rendered as an image. The output therefore represents the visual appearance of the page rather than preserving the PDF's editable text structure.", "Large or image-heavy PDFs can require more browser memory and may take longer to process on lower-powered phones or computers."] },
       { heading: "Check image quality", paragraphs: ["JPG uses lossy compression, so fine text or graphics can lose detail. Open the output at normal viewing size and check important information before submitting or publishing it.", "If you need PNG rather than JPG, you can convert the resulting image with Alyvero's JPG to PNG tool."] }
     ],
-    related:["jpg-to-png","image-to-pdf","compress-image"]
+    related:["jpg-to-png","image-to-pdf","compress-image"], guides:[{slug:"compress-pdf-without-losing-quality",title:"Compress a PDF without losing readability"},{slug:"reduce-pdf-size",title:"How to reduce PDF file size"}]
   },
   "resize-image": { intro: "Change an image's width while keeping its original proportions.", sections: [{heading:"Why resize an image",paragraphs:["Resizing can help when an upload form has dimension requirements or when a photo is unnecessarily large."]},{heading:"Output format",paragraphs:["The current Alyvero tool exports the resized result as JPG. Keep the original if you need transparency or the source format."]}], related:["compress-image","jpg-to-png","image-to-pdf"] },
   "jpg-to-png": { intro: "Convert a JPG photograph or graphic into a PNG copy directly in your browser.", sections: [{heading:"When PNG is useful",paragraphs:["PNG is lossless and can be useful when you need a PNG-specific workflow or want to avoid another JPEG compression pass."]},{heading:"Expect different file sizes",paragraphs:["PNG can be larger than the original JPG. Choose the format based on the destination rather than file size alone."]}], related:["resize-image","compress-image","image-to-pdf"] },
@@ -114,7 +114,7 @@ export default function ToolContent({ slug }: { slug: string }) {
         </section>
       ) : null}
       <div className="related-tools">
-        <h2>Related Alyvero tools</h2>
+      {item.guides?.length ? (\n        <div className="related-tools">\n          <h2>Helpful PDF guides</h2>\n          <div className="related-grid">\n            {item.guides.map((guide) => (\n              <Link href={`/${guide.slug}`} className="related-card" key={guide.slug}>\n                <strong>{guide.title}</strong>\n                <span>Practical guidance for the same file problem.</span>\n              </Link>\n            ))}\n          </div>\n        </div>\n      ) : null}\n        <h2>Related Alyvero tools</h2>
         <div className="related-grid">
           {related.map((tool) => tool ? (
             <Link href={`/${tool.slug}`} className="related-card" key={tool.slug}>
