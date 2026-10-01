@@ -19,29 +19,23 @@ export default function ContactForm() {
       return;
     }
 
-    const payload = Object.fromEntries(formData.entries());
-
     try {
-      const response = await fetch("https://formsubmit.co/ajax/rindodi@gmail.com", {
+      const response = await fetch("/api/contact", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-        body: JSON.stringify(payload),
+        body: formData,
       });
 
       const data = await response.json().catch(() => null);
 
-      if (!response.ok || data?.success === false) {
-        throw new Error("The message could not be sent.");
+      if (!response.ok || !data?.ok) {
+        throw new Error(data?.error || "The message could not be sent.");
       }
 
       form.reset();
       setStatus("sent");
-    } catch {
+    } catch (err) {
       setStatus("error");
-      setError("We couldn't send your message right now. Please try again in a moment.");
+      setError(err instanceof Error ? err.message : "We couldn't send your message right now. Please try again in a moment.");
     }
   }
 
@@ -59,11 +53,7 @@ export default function ContactForm() {
 
   return (
     <form className="contact-form" onSubmit={handleSubmit}>
-      <input type="hidden" name="_subject" value="Alyvero contact form" />
-      <input type="hidden" name="_captcha" value="false" />
-      <input type="hidden" name="_template" value="table" />
-      <input type="hidden" name="_url" value="https://www.alyvero.co.ke/contact" />
-      <input type="text" name="_honey" tabIndex={-1} autoComplete="off" aria-hidden="true" style={{ display: "none" }} />
+      <input type="hidden" name="_honey" value="" />
 
       <label htmlFor="name">Name</label>
       <input id="name" name="name" type="text" required autoComplete="name" />
