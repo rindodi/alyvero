@@ -17,6 +17,5 @@ export default function robots(): MetadataRoute.Robots {
       ...crawlers.map((userAgent) => ({ userAgent, allow: "/" })),
     ],
     sitemap: "https://www.alyvero.co.ke/sitemap.xml",
-    host: "https://www.alyvero.co.ke",
   };
 }
