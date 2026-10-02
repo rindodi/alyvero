@@ -87,7 +87,6 @@ export default function ToolContent({ slug }: { slug: string }) {
   const related = (item?.related ?? [])
     .map((slug) => tools.find((tool) => tool.slug === slug))
     .filter(Boolean);
-  const tool = tools.find((entry) => entry.slug === slug);
 
   if (!item) return null;
 
@@ -105,19 +104,19 @@ export default function ToolContent({ slug }: { slug: string }) {
       ))}
 
       <div className="related-tools">
-      {item.guides?.length ? (
-        <div className="related-tools">
-          <h2>Helpful PDF guides</h2>
-          <div className="related-grid">
-            {item.guides.map((guide) => (
-              <Link href={`/${guide.slug}`} className="related-card" key={guide.slug}>
-                <strong>{guide.title}</strong>
-                <span>Practical guidance for the same file problem.</span>
-              </Link>
-            ))}
-          </div>
-        </div>
-      ) : null}
+        {item.guides?.length ? (
+          <>
+            <h2>Helpful PDF guides</h2>
+            <div className="related-grid">
+              {item.guides.map((guide) => (
+                <Link href={`/${guide.slug}`} className="related-card" key={guide.slug}>
+                  <strong>{guide.title}</strong>
+                  <span>Practical guidance for the same file problem.</span>
+                </Link>
+              ))}
+            </div>
+          </>
+        ) : null}
         <h2>Related Alyvero tools</h2>
         <div className="related-grid">
           {related.map((tool) => tool ? (
