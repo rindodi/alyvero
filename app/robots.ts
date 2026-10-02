@@ -1,20 +1,16 @@
 import type { MetadataRoute } from "next";
 
 export default function robots(): MetadataRoute.Robots {
-  const crawlers = [
-    "Googlebot",
-    "Bingbot",
-    "GPTBot",
-    "OAI-SearchBot",
-    "ClaudeBot",
-    "PerplexityBot",
-    "YandexBot",
-  ];
-
   return {
     rules: [
+      { userAgent: "Googlebot", allow: "/" },
+      { userAgent: "Bingbot", allow: "/" },
+      { userAgent: "YandexBot", allow: "/" },
+      { userAgent: "GPTBot", allow: "/" },
+      { userAgent: "OAI-SearchBot", allow: "/" },
+      { userAgent: "ClaudeBot", allow: "/" },
+      { userAgent: "PerplexityBot", allow: "/" },
       { userAgent: "*", allow: "/" },
-      ...crawlers.map((userAgent) => ({ userAgent, allow: "/" })),
     ],
     sitemap: "https://www.alyvero.co.ke/sitemap.xml",
   };
