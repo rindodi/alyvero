@@ -101,18 +101,7 @@ export default function ToolContent({ slug }: { slug: string }) {
           ) : null}
         </section>
       ))}
-      {tool ? (
-        <section className="content-block">
-          <h2>Common questions</h2>
-          {tool.faqs.map((faq) => (
-            <details key={faq.question}>
-              <summary>{faq.question}</summary>
-              <p>{faq.answer}</p>
-            </details>
-          ))}
-          <p>For important files, keep the original until you have checked the downloaded result. See the <Link href="/privacy">Privacy Policy</Link> for Alyvero's approach to cookies, analytics, advertising and contact-form information.</p>
-        </section>
-      ) : null}
+
       <div className="related-tools">
       {item.guides?.length ? (\n        <div className="related-tools">\n          <h2>Helpful PDF guides</h2>\n          <div className="related-grid">\n            {item.guides.map((guide) => (\n              <Link href={`/${guide.slug}`} className="related-card" key={guide.slug}>\n                <strong>{guide.title}</strong>\n                <span>Practical guidance for the same file problem.</span>\n              </Link>\n            ))}\n          </div>\n        </div>\n      ) : null}\n        <h2>Related Alyvero tools</h2>
         <div className="related-grid">
