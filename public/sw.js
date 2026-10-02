@@ -1,4 +1,5 @@
-const CACHE_NAME = "alyvero-shell-v1";
+const CACHE_NAME = "alyvero-shell-v2";
+const CACHE_PREFIX = "alyvero-shell-";
 const APP_SHELL = ["/", "/icon.svg"];
 
 self.addEventListener("install", (event) => {
@@ -13,7 +14,9 @@ self.addEventListener("activate", (event) => {
   event.waitUntil(
     caches.keys()
       .then((keys) => Promise.all(
-        keys.filter((key) => key !== CACHE_NAME).map((key) => caches.delete(key))
+        keys
+          .filter((key) => key.startsWith(CACHE_PREFIX) && key !== CACHE_NAME)
+          .map((key) => caches.delete(key))
       ))
       .then(() => self.clients.claim())
   );
@@ -31,12 +34,15 @@ self.addEventListener("fetch", (event) => {
 
   if (request.mode === "navigate") {
     event.respondWith(
-      fetch(request).catch(() => caches.match("/"))
+      fetch(request).catch(async () => {
+        const cachedHome = await caches.match("/");
+        return cachedHome || Response.error();
+      })
     );
     return;
   }
 
-  // Only use the small shell cache for explicitly cached assets.
+  // Only explicitly cached shell assets can be served from cache.
   event.respondWith(
     caches.match(request).then((cached) => cached || fetch(request))
   );
