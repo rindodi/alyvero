@@ -1,4 +1,4 @@
-export const metadata={title:"Privacy Policy | Alyvero",description:"Alyvero privacy policy covering files, contact forms, cookies, analytics, advertising and third-party services."};
+export const metadata={title:"Privacy Policy | Alyvero",description:"Alyvero privacy policy covering files, contact forms, cookies, analytics, advertising and third-party services.",alternates:{canonical:"/privacy"}};
 export default function Privacy(){return <div className="container content-page">
 <p className="eyebrow">Alyvero / privacy</p><h1>Privacy Policy</h1><p className="lead"><strong>Last updated: October 1, 2026</strong><br/>This policy explains what information Alyvero handles when you use the website and its file tools, including file processing, contact forms, analytics, cookies and advertising.</p>
 <h2>1. About Alyvero</h2><p>Alyvero provides browser-based utilities for converting, compressing, resizing and creating digital files. The service is operated as a focused online utility platform and does not require an account for its core tools.</p>
