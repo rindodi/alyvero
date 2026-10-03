@@ -52,6 +52,13 @@ const stepNotes: Record<string, string[]> = {
   ]
 };
 
+const relatedTools = [
+  { href: "/compress-pdf", title: "Compress PDF", description: "Create a smaller PDF copy and compare the actual file size." },
+  { href: "/merge-pdf", title: "Merge PDF", description: "Combine related PDF documents before sharing or submitting them." },
+  { href: "/split-pdf", title: "Split PDF", description: "Separate a document into one-page PDF files." },
+  { href: "/pdf-to-jpg", title: "PDF to JPG", description: "Turn PDF pages into separate image files." }
+];
+
 function getStepNote(guide: PdfGuide, index: number) {
   return stepNotes[guide.slug]?.[index] ?? "Follow this step, then check the result before moving to the next part of the workflow.";
 }
@@ -59,11 +66,19 @@ function getStepNote(guide: PdfGuide, index: number) {
 export default function SearchIntentPage({ guide }: { guide: PdfGuide }) {
   return (
     <article className="content-page">
+      <nav className="breadcrumbs" aria-label="Breadcrumb">
+        <Link href="/">Home</Link>
+        <span aria-hidden="true">/</span>
+        <Link href="/guides">Guides</Link>
+        <span aria-hidden="true">/</span>
+        <Link href="/pdf-tools">PDF tools</Link>
+      </nav>
       <p className="eyebrow">Alyvero PDF guide</p>
       <h1>{guide.title}</h1>
       <p className="lead">{guide.intro}</p>
       <div className="actions">
         <Link className="primary" href="/compress-pdf">Compress PDF</Link>
+        <Link className="secondary" href="/pdf-tools">Browse PDF tools</Link>
       </div>
 
       <section className="section">
@@ -86,6 +101,18 @@ export default function SearchIntentPage({ guide }: { guide: PdfGuide }) {
       ))}
 
       <section className="section">
+        <h2>Related PDF tools</h2>
+        <div className="guide-grid">
+          {relatedTools.map((tool) => (
+            <Link className="guide-card" href={tool.href} key={tool.href}>
+              <strong>{tool.title}</strong>
+              <span>{tool.description}</span>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      <section className="section">
         <h2>More PDF help</h2>
         <div className="guide-grid">
           <Link className="guide-card" href="/compress-pdf-for-email"><strong>Compress PDF for email</strong><span>Get a smaller attachment copy.</span></Link>
@@ -96,11 +123,13 @@ export default function SearchIntentPage({ guide }: { guide: PdfGuide }) {
       </section>
 
       <section className="section">
-        <h2>Use Alyvero</h2>
+        <h2>Explore Alyvero</h2>
         <p>{guide.description}</p>
+        <p>For image-format questions, visit the <Link href="/image-tools">image tools hub</Link>. The <Link href="/glossary">PDF and image glossary</Link> explains common file terms.</p>
         <div className="actions">
           <Link className="primary" href="/compress-pdf">Open Compress PDF</Link>
-          <Link className="secondary" href="/">See all tools</Link>
+          <Link className="secondary" href="/tools">See all tools</Link>
+          <Link className="secondary" href="/guides">All guides</Link>
         </div>
       </section>
     </article>
