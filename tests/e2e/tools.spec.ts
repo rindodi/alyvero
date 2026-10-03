@@ -30,7 +30,7 @@ async function downloadAndAssert(
   extension: string
 ) {
   const downloadPromise = page.waitForEvent("download");
-  await page.getByRole("link", { name: new RegExp(buttonText, "i") }).click();
+  await page.getByRole("link", { name: buttonText }).click();
   const download = await downloadPromise;
   expect(download.suggestedFilename().toLowerCase()).toContain(extension);
   const path = await download.path();
