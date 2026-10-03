@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-export const metadata:Metadata={title:"About Alyvero",description:"Learn what Alyvero does, how its browser-first file tools work and how Alyvero relates to FixTech."};
+export const metadata:Metadata={title:"About Alyvero",description:"Learn what Alyvero does, how its browser-first file tools work and how Alyvero relates to FixTech.",alternates:{canonical:"/about"}};
 export default function About(){return <div className="container content-page">
 <p className="eyebrow">Alyvero / about</p><h1>Useful file tools, without the clutter.</h1>
 <p className="lead">Alyvero is a practical online utility platform for common digital file problems. The goal is simple: when you need to convert, compress, resize or create a file, the relevant tool should be easy to find and straightforward to use.</p>
