@@ -4,6 +4,7 @@ import ContactForm from "./ContactForm";
 export const metadata: Metadata = {
   title: "Contact Alyvero",
   description: "Contact Alyvero about product feedback, bug reports, questions and partnership enquiries.",
+  alternates: { canonical: "/contact" },
 };
 
 export default async function Contact({ searchParams }: { searchParams: Promise<{ sent?: string }> }) {
