@@ -1,4 +1,4 @@
-export const metadata={title:"Terms of Use | Alyvero",description:"Terms of use for Alyvero browser-based file conversion, compression and creation tools."};
+export const metadata={title:"Terms of Use | Alyvero",description:"Terms of use for Alyvero browser-based file conversion, compression and creation tools.",alternates:{canonical:"/terms"}};
 export default function Terms(){return <div className="container content-page">
 <p className="eyebrow">Alyvero / terms</p><h1>Terms of Use</h1><p className="lead"><strong>Last updated: September 26, 2026</strong><br/>These terms describe the basic conditions for using Alyvero's browser-based file utilities.</p>
 <h2>1. Using Alyvero</h2><p>Alyvero provides browser-based utilities on an as-is basis. You may use the tools for lawful personal, educational or business purposes, subject to these terms and applicable law.</p>
