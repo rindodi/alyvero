@@ -22,71 +22,39 @@ const structuredData = {
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "Organization",
-      "@id": "https://www.alyvero.co.ke/#organization",
-      name: "Alyvero",
-      url: "https://www.alyvero.co.ke/",
-      description:
-        "Browser-based online tools for converting, compressing, resizing and creating PDF and image files.",
-      founder: { "@type": "Person", name: "Robert Indodi" },
-      isPartOf: {
-        "@type": "Organization",
-        "@id": "https://www.fixtech.co.ke/#organization",
-        name: "FixTech",
-        url: "https://www.fixtech.co.ke/",
-      },
-    },
-    {
-      "@type": "WebSite",
-      "@id": "https://www.alyvero.co.ke/#website",
-      url: "https://www.alyvero.co.ke/",
-      name: "Alyvero",
-      description: "Free online PDF and image tools.",
-      publisher: { "@id": "https://www.alyvero.co.ke/#organization" },
-      inLanguage: "en",
-    },
-    {
       "@type": "WebPage",
       "@id": "https://www.alyvero.co.ke/#webpage",
-      url: "https://www.alyvero.co.ke/",
-      name: "Free Online PDF & Image Tools | Alyvero",
-      description:
-        "Free browser-based tools for common PDF and image problems: convert, compress, merge, split, resize and create files.",
-      isPartOf: { "@id": "https://www.alyvero.co.ke/#website" },
-      about: { "@id": "https://www.alyvero.co.ke/#organization" },
-      mainEntity: { "@id": "https://www.alyvero.co.ke/#tools" },
-      hasPart: [
+      "url": "https://www.alyvero.co.ke/",
+      "name": "Free Online PDF & Image Tools | Alyvero",
+      "description": "Free browser-based tools for common PDF and image problems: convert, compress, merge, split, resize and create files.",
+      "isPartOf": { "@id": "https://www.alyvero.co.ke/#website" },
+      "about": { "@id": "https://www.alyvero.co.ke/#organization" },
+      "mainEntity": { "@id": "https://www.alyvero.co.ke/#tools" },
+      "hasPart": [
         { "@id": "https://www.alyvero.co.ke/tools" },
         { "@id": "https://www.alyvero.co.ke/pdf-tools" },
         { "@id": "https://www.alyvero.co.ke/image-tools" },
-        { "@id": "https://www.alyvero.co.ke/guides" },
+        { "@id": "https://www.alyvero.co.ke/guides" }
       ],
-      inLanguage: "en",
+      "inLanguage": "en"
     },
     {
       "@type": "ItemList",
       "@id": "https://www.alyvero.co.ke/#tools",
-      name: "Alyvero Online File Tools",
-      description: "Online tools for common PDF and image file tasks.",
-      numberOfItems: 10,
-      itemListElement: [
-        "pdf-to-word",
-        "compress-pdf",
-        "compress-image",
-        "heic-to-jpg",
-        "image-to-pdf",
-        "merge-pdf",
-        "split-pdf",
-        "pdf-to-jpg",
-        "resize-image",
-        "jpg-to-png",
+      "name": "Alyvero Online File Tools",
+      "description": "Online tools for common PDF and image file tasks.",
+      "numberOfItems": 10,
+      "itemListElement": [
+        "pdf-to-word", "compress-pdf", "compress-image", "heic-to-jpg",
+        "image-to-pdf", "merge-pdf", "split-pdf", "pdf-to-jpg",
+        "resize-image", "jpg-to-png"
       ].map((slug, index) => ({
         "@type": "ListItem",
-        position: index + 1,
-        url: `https://www.alyvero.co.ke/${slug}`,
-      })),
-    },
-  ],
+        "position": index + 1,
+        "url": `https://www.alyvero.co.ke/${slug}`
+      }))
+    }
+  ]
 };
 
 const popularTools = tools.slice(0, 10);
