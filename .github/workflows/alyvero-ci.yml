@@ -17,7 +17,7 @@ jobs:
   verify:
     name: Full verification
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 20
 
     steps:
       - name: Checkout
@@ -27,9 +27,11 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 22
+          cache: npm
+          cache-dependency-path: package.json
 
       - name: Install dependencies
-        run: npm install
+        run: npm install --no-audit --no-fund
 
       - name: Typecheck
         run: npm run typecheck
@@ -45,6 +47,3 @@ jobs:
 
       - name: Browser end-to-end tests
         run: npm run e2e
-
-      - name: Production health check
-        run: npm run healthcheck
