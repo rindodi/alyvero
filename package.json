@@ -13,7 +13,7 @@
     "e2e": "playwright test"
   },
   "dependencies": {
-    "docx": "9.7.2",
+    "docx": "9.8.1",
     "heic2any": "^0.0.4",
     "next": "^16.3.1",
     "pdf-lib": "^1.17.1",
