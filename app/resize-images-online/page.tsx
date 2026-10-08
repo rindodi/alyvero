@@ -1,4 +1,3 @@
-
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -44,10 +43,11 @@ export default function ResizeImagesOnlinePage() {
         </h2>
 
         <p>
-          <strong>Does resizing reduce quality?</strong><br />
+          <strong>Does resizing reduce quality?</strong>
+          <br />
           Proper resizing helps maintain image quality.
         </p>
       </section>
     </main>
   );
-}
+  }
