@@ -12,6 +12,13 @@ const pngBytes = Buffer.from(
   "base64"
 );
 
+// Keep this fixture independent of the browser encoder. CI should test the
+// JPG-to-PNG converter, not the browser's ability to manufacture a JPEG.
+const jpgBytes = Buffer.from(
+  "/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsKCwsNDhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUGBIUFRT/2wBDAQMEBAUEBQkFBQkUDQsNFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBT/wAARCAACAAIDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/9oADAMBAAIRAxEAPwDz+iiiv6dPwc//2Q==",
+  "base64"
+);
+
 async function upload(
   page: import("@playwright/test").Page,
   path: string,
@@ -109,24 +116,12 @@ test("Resize Image creates a JPG download", async ({ page }) => {
 });
 
 test("JPG to PNG creates a PNG download", async ({ page }) => {
-  // Generate a real JPEG with the browser's own encoder so the fixture is
-  // guaranteed to be decodable by createImageBitmap in the conversion tool.
-  const jpgBase64 = await page.evaluate(() => {
-    const canvas = document.createElement("canvas");
-    canvas.width = 2;
-    canvas.height = 2;
-    const context = canvas.getContext("2d");
-    if (!context) throw new Error("Could not create JPEG test fixture.");
-    context.fillStyle = "#2874d0";
-    context.fillRect(0, 0, canvas.width, canvas.height);
-    return canvas.toDataURL("image/jpeg").split(",")[1];
-  });
-  const jpgBytes = Buffer.from(jpgBase64, "base64");
   await upload(page, "/jpg-to-png", "test.jpg", "image/jpeg", jpgBytes);
   await page.getByRole("button", { name: "Convert to PNG" }).click();
   await expect(page.getByText("Your PNG is ready.")).toBeVisible();
   await downloadAndAssert(page, "Download PNG", ".png");
 });
+
 test("Homepage exposes all ten core tools", async ({ page }) => {
   await page.goto("/");
   await expect(page.locator(".home-page .tool-card")).toHaveCount(10);
