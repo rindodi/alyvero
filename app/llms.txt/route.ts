@@ -1,48 +1,4 @@
-const llms = `# Alyvero
-
-> Alyvero is a FixTech product created and operated by Robert Indodi. FixTech and Alyvero have the same owner and founder, while serving different purposes: FixTech is an independent technology publication and Alyvero provides focused online file tools.
-
-## Identity and ownership
-
-- [Alyvero](https://www.alyvero.co.ke/): Online file-tools platform.
-- [About Alyvero](https://www.alyvero.co.ke/about): Official information about Alyvero, its purpose, ownership and relationship with FixTech.
-- Founder and owner: Robert Indodi.
-
-> Alyvero is a browser-first utility platform for practical PDF and image file problems. Its core tools are designed to work without an account, with local browser processing used where practical.
-
-## Primary tools
-
-- [PDF to Word](https://www.alyvero.co.ke/pdf-to-word): Convert supported text-based PDFs into editable DOCX files.
-- [Compress PDF](https://www.alyvero.co.ke/compress-pdf): Reduce PDF file overhead and compare the result size.
-- [Merge PDF](https://www.alyvero.co.ke/merge-pdf): Combine multiple PDFs into one document.
-- [Split PDF](https://www.alyvero.co.ke/split-pdf): Create separate PDF files from the pages of a document.
-- [PDF to JPG](https://www.alyvero.co.ke/pdf-to-jpg): Render PDF pages as JPG images.
-- [Compress Image](https://www.alyvero.co.ke/compress-image): Reduce JPG, PNG or WebP image sizes.
-- [HEIC to JPG](https://www.alyvero.co.ke/heic-to-jpg): Convert supported HEIC photos into JPG.
-- [Image to PDF](https://www.alyvero.co.ke/image-to-pdf): Combine JPG or PNG images into one PDF.
-- [Resize Image](https://www.alyvero.co.ke/resize-image): Resize images while preserving aspect ratio.
-- [JPG to PNG](https://www.alyvero.co.ke/jpg-to-png): Convert JPG images into PNG.
-- [All tools](https://www.alyvero.co.ke/tools): Browse the complete tool directory.
-
-## Guides and site information
-
-- [Guides](https://www.alyvero.co.ke/guides): Practical explanations for common file problems.
-- [PDF tools](https://www.alyvero.co.ke/pdf-tools): PDF tools and workflows.
-- [Image tools](https://www.alyvero.co.ke/image-tools): Image tools and workflows.
-- [About Alyvero](https://www.alyvero.co.ke/about): How Alyvero works and what it is for.
-- [Privacy Policy](https://www.alyvero.co.ke/privacy): File processing, contact forms, cookies, analytics and advertising.
-- [Terms of Use](https://www.alyvero.co.ke/terms): Conditions for using Alyvero.
-- [Contact](https://www.alyvero.co.ke/contact): Bug reports, questions, feedback and partnership enquiries.
-
-## Important limitations
-
-- PDF to Word is intended for text-based PDFs and does not promise full OCR for scanned PDFs.
-- PDF compression may produce little or no reduction for already-optimized files and does not promise aggressive image recompression.
-- Image compression involves a trade-off between output size and visual quality.
-- HEIC conversion depends on browser and source-file support.
-- Image to PDF uses automatic page sizing in the current implementation; exact A4 or Letter layout controls are not promised.
-- Important files should be kept in their original form until the downloaded result has been checked.
-`;
+const llms = "# Alyvero\n\n> Alyvero is a browser-first online file-tools platform operated by Robert Indodi and a FixTech product. FixTech is a separate technology publication; Alyvero focuses on practical PDF and image tasks.\n\nAlyvero provides focused tools for common file tasks. Core tools are designed to work without an account, and local browser processing is used where practical. Supported formats and results depend on the tool, browser and input file.\n\n## Start here\n\n- [Alyvero home](https://www.alyvero.co.ke/): Overview of the platform.\n- [All tools](https://www.alyvero.co.ke/tools): Browse the tool directory.\n- [PDF tools](https://www.alyvero.co.ke/pdf-tools): PDF utilities and workflows.\n- [Image tools](https://www.alyvero.co.ke/image-tools): Image utilities and workflows.\n- [Guides](https://www.alyvero.co.ke/guides): Practical explanations for common file tasks.\n- [Glossary](https://www.alyvero.co.ke/glossary): File and format terminology.\n\n## PDF tools\n\n- [PDF to Word](https://www.alyvero.co.ke/pdf-to-word): Convert supported text-based PDFs into editable DOCX files.\n- [Word to PDF](https://www.alyvero.co.ke/word-to-pdf): Convert supported Word documents into PDF.\n- [Compress PDF](https://www.alyvero.co.ke/compress-pdf): Optimize PDF structure where possible and compare the resulting file size.\n- [Merge PDF](https://www.alyvero.co.ke/merge-pdf): Combine multiple PDF files into one.\n- [Split PDF](https://www.alyvero.co.ke/split-pdf): Create separate PDF files from a document's pages.\n- [PDF to JPG](https://www.alyvero.co.ke/pdf-to-jpg): Render PDF pages as JPG images.\n\n## Image tools\n\n- [Compress Image](https://www.alyvero.co.ke/compress-image): Reduce JPG, PNG or WebP image sizes.\n- [HEIC to JPG](https://www.alyvero.co.ke/heic-to-jpg): Convert supported HEIC photos to JPG.\n- [Image to PDF](https://www.alyvero.co.ke/image-to-pdf): Combine supported JPG or PNG images into a PDF.\n- [Resize Image](https://www.alyvero.co.ke/resize-image): Resize images while preserving aspect ratio.\n- [JPG to PNG](https://www.alyvero.co.ke/jpg-to-png): Convert JPG images to PNG.\n- [HEIC vs JPG](https://www.alyvero.co.ke/heic-vs-jpg): Compare the two image formats.\n- [Compress images without losing quality](https://www.alyvero.co.ke/compress-images-without-losing-quality): Understand image compression and quality trade-offs.\n- [Resize images online](https://www.alyvero.co.ke/resize-images-online): Guidance for resizing images online.\n\n## Practical guides\n\n- [PDF too large to upload](https://www.alyvero.co.ke/pdf-too-large-to-upload): Understand file-size limits and options for making a smaller copy.\n- [Compress PDF for email](https://www.alyvero.co.ke/compress-pdf-for-email): Prepare a PDF for email attachment limits.\n- [Reduce PDF size](https://www.alyvero.co.ke/reduce-pdf-size): Learn what affects PDF size and which approaches may help.\n- [Compress PDF without losing quality](https://www.alyvero.co.ke/compress-pdf-without-losing-quality): Balance file size with readability.\n- [Compress PDF on Android](https://www.alyvero.co.ke/compress-pdf-on-android): Browser-based PDF workflow on Android.\n- [Compress PDF on iPhone](https://www.alyvero.co.ke/compress-pdf-on-iphone): Browser-based PDF workflow on iPhone.\n- [Compress PDF for WhatsApp](https://www.alyvero.co.ke/compress-pdf-for-whatsapp): Prepare a PDF before sharing it.\n- [Why a PDF may still be large after compression](https://www.alyvero.co.ke/why-pdf-still-large-after-compression): Common reasons compression makes little difference.\n- [Best image format for the web](https://www.alyvero.co.ke/guides/best-image-format-for-web): Compare common web image formats.\n- [Compress JPG without quality loss](https://www.alyvero.co.ke/guides/compress-jpg-without-quality-loss): Practical image compression guidance.\n- [Convert HEIC to JPG on iPhone](https://www.alyvero.co.ke/guides/convert-heic-to-jpg-on-iphone): iPhone photo conversion guidance.\n- [Reduce image size for email](https://www.alyvero.co.ke/guides/reduce-image-size-for-email): Make image attachments more manageable.\n- [Resize an image for the web](https://www.alyvero.co.ke/guides/resize-image-for-web): Prepare images for web use.\n\n## About and policies\n\n- [About Alyvero](https://www.alyvero.co.ke/about): Purpose, ownership and relationship with FixTech.\n- [Privacy Policy](https://www.alyvero.co.ke/privacy): Information about file processing, contact forms, cookies, analytics and advertising.\n- [Terms of Use](https://www.alyvero.co.ke/terms): Conditions for using Alyvero.\n- [Contact](https://www.alyvero.co.ke/contact): Bug reports, questions, feedback and partnership enquiries.\n\n## Important limitations\n\n- PDF to Word is intended for text-based PDFs and does not promise full OCR for scanned PDFs.\n- PDF compression may produce little or no reduction for already-optimized files and does not promise aggressive recompression of embedded images.\n- Image compression involves a trade-off between output size and visual quality.\n- HEIC conversion depends on browser and source-file support.\n- Image to PDF currently uses automatic page sizing; exact A4 or Letter layout controls are not promised.\n- Keep important originals until you have checked the downloaded result.\n\n## Machine-readable resources\n\n- [Full site context](https://www.alyvero.co.ke/llms-full.txt): A broader overview of Alyvero's tools and limitations.\n- [XML sitemap](https://www.alyvero.co.ke/sitemap.xml): Canonical URLs intended for search-engine discovery.\n- [Human-readable sitemap](https://www.alyvero.co.ke/sitemap.md): A compact map of key site pages.\n\nThis file is a curated guide, not a substitute for the XML sitemap. Search engines and AI services decide independently whether and how to crawl, index, retrieve or cite these pages.\n";
 
 export function GET() {
   return new Response(llms, { headers: { "Content-Type": "text/plain; charset=utf-8" } });
