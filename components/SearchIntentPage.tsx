@@ -1,6 +1,5 @@
 import Link from "next/link";
 import type { PdfGuide } from "@/lib/compressPdfGuides";
-import PDF2GoAd from "@/components/PDF2GoAd";
 
 const stepNotes: Record<string, string[]> = {
   "pdf-too-large-to-upload": [
@@ -77,7 +76,6 @@ export default function SearchIntentPage({ guide }: { guide: PdfGuide }) {
       <p className="eyebrow">Alyvero PDF guide</p>
       <h1>{guide.title}</h1>
       <p className="lead">{guide.intro}</p>
-      <PDF2GoAd />
       <div className="actions">
         <Link className="primary" href="/compress-pdf">Compress PDF</Link>
         <Link className="secondary" href="/pdf-tools">Browse PDF tools</Link>
