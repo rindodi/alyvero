@@ -79,7 +79,8 @@ export default function Home() {
 
       <section className="hero">
         <p className="eyebrow">Alyvero online file tools</p>
-        <h1>Solve it.<br />Get it done.</h1>
+        <h1>Free Online PDF and Image Tools</h1>
+        <p><strong>Solve it. Get it done.</strong></p>
         <p>Free browser-based tools for common PDF and image problems. Convert, compress, merge, split, resize and transform files directly from your phone or computer.</p>
         <form className="search-box" action="/tools">
           <input name="q" placeholder="What do you need to do?" aria-label="Search Alyvero tools" />
