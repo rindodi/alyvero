@@ -4,7 +4,7 @@ on:
   pull_request:
     branches: [main]
   push:
-    branches: [main]
+    branches: [main, cloudflare-test]
   schedule:
     - cron: "17 4 * * *"
   workflow_dispatch:
@@ -17,7 +17,7 @@ jobs:
   verify:
     name: Full verification
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 20
 
     steps:
       - name: Checkout
@@ -30,6 +30,14 @@ jobs:
 
       - name: Install dependencies
         run: npm install
+
+      - name: Cloudflare compatibility check
+        if: github.ref == 'refs/heads/cloudflare-test'
+        run: npx --yes vinext check
+
+      - name: Cloudflare configuration preview (dry run)
+        if: github.ref == 'refs/heads/cloudflare-test'
+        run: npx --yes wrangler setup --dry-run
 
       - name: Typecheck
         run: npm run typecheck
