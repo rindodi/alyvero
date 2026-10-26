@@ -35,6 +35,10 @@ jobs:
         if: github.ref == 'refs/heads/cloudflare-test'
         run: npx --yes vinext check
 
+      - name: Cloudflare configuration preview (dry run)
+        if: github.ref == 'refs/heads/cloudflare-test'
+        run: npx --yes wrangler setup --dry-run
+
       - name: Typecheck
         run: npm run typecheck
 
