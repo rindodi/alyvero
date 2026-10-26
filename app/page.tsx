@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { tools } from "@/lib/tools";
+import PDF2GoAd from "@/components/PDF2GoAd";
 
 export const metadata: Metadata = {
   title: "Free Online PDF & Image Tools | Alyvero",
@@ -100,6 +101,8 @@ export default function Home() {
         </div>
         <p className="section-link"><Link href="/tools">Browse all tools →</Link> · <Link href="/pdf-tools">PDF Tools</Link> · <Link href="/image-tools">Image Tools</Link></p>
       </section>
+
+      <PDF2GoAd />
 
       <section className="section">
         <h2>Popular file tasks</h2>
