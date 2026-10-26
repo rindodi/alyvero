@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { tools } from "@/lib/tools";
-import PDF2GoAd from "@/components/PDF2GoAd";
 
 export const metadata: Metadata = {
   title: "Free Online PDF & Image Tools | Alyvero",
@@ -80,7 +79,6 @@ export default function Home() {
 
       <section className="hero">
         <p className="eyebrow">Alyvero online file tools</p>
-        <PDF2GoAd />
         <h1>Free Online PDF and Image Tools</h1>
         <p><strong>Solve it. Get it done.</strong></p>
         <p>Free browser-based tools for common PDF and image problems. Convert, compress, merge, split, resize and transform files directly from your phone or computer.</p>
