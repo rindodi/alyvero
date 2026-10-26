@@ -80,6 +80,7 @@ export default function Home() {
 
       <section className="hero">
         <p className="eyebrow">Alyvero online file tools</p>
+        <PDF2GoAd />
         <h1>Free Online PDF and Image Tools</h1>
         <p><strong>Solve it. Get it done.</strong></p>
         <p>Free browser-based tools for common PDF and image problems. Convert, compress, merge, split, resize and transform files directly from your phone or computer.</p>
@@ -101,8 +102,6 @@ export default function Home() {
         </div>
         <p className="section-link"><Link href="/tools">Browse all tools →</Link> · <Link href="/pdf-tools">PDF Tools</Link> · <Link href="/image-tools">Image Tools</Link></p>
       </section>
-
-      <PDF2GoAd />
 
       <section className="section">
         <h2>Popular file tasks</h2>
