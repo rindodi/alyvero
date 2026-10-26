@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useState, type ChangeEvent, type DragEvent, type ReactNode } from "react";
+import PDF2GoAd from "@/components/PDF2GoAd";
 
 export function formatBytes(bytes:number){if(!bytes)return"0 B";const units=["B","KB","MB","GB"];const i=Math.min(Math.floor(Math.log(bytes)/Math.log(1024)),units.length-1);return `${(bytes/Math.pow(1024,i)).toFixed(i?1:0)} ${units[i]}`}
 
@@ -11,10 +12,12 @@ export default function ToolShell({title,description,accept,multiple=false,suppo
  const setFiles=(next:File[])=>{const clean=multiple?next:next.slice(0,1);setFilesState(clean);if(!clean.length&&inputRef.current)inputRef.current.value=""};
  const onInput=(e:ChangeEvent<HTMLInputElement>)=>{setFiles(Array.from(e.target.files??[]));e.target.value=""};
  const onDrop=(e:DragEvent<HTMLDivElement>)=>{e.preventDefault();setDragging(false);setFiles(Array.from(e.dataTransfer.files))};
+ const showPdfOffer=/pdf/i.test(title);
  return <div className="container tool-page">
   <div className="tool-header">
    <p className="eyebrow">Alyvero / tool</p><h1>{title}</h1><p>{description}</p>
   </div>
+  {showPdfOffer&&<PDF2GoAd/>}
   <div className="tool-panel">
    <div className={`dropzone${dragging?" dragging":""}`} onDragOver={e=>{e.preventDefault();setDragging(true)}} onDragLeave={()=>setDragging(false)} onDrop={onDrop}>
     <p className="eyebrow" style={{marginBottom:8}}>Input</p><h2>Select your file{multiple?"s":""}</h2>
